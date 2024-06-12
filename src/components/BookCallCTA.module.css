@@ -1,0 +1,27 @@
+/* components/BookCallButton.module.css */
+.buttonContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px;
+}
+
+.button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 15px 22.5px; /* Increased padding by 50% */
+  border-radius: 5px; /* Optional: Add border-radius for rounded effect */
+  background-color: black;
+  font-size: 16px;
+  max-width: 200px; /* Set the max width */
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflow content */
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+}
+
+.button:hover {
+  color: black;
+  background-color: orange;
+}

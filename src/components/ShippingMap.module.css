@@ -1,0 +1,23 @@
+/* src/components/ShippingMap.module.css */
+.container {
+  text-align: center;
+  color: white;
+  background-color: black; 
+  padding: 20px;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.button {
+  background-color: red; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}

@@ -1,0 +1,30 @@
+/* src/components/FeatureBlocks.module.css */
+.container {
+  display: flex;
+  width: 100%;  
+  justify-content: space-around;
+}
+
+.feature {
+  flex: 1;  
+  height: 300px;  
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;  
+  margin: 0 10px; 
+  text-decoration: none;
+}
+
+.feature:hover {
+  transform: scale(1.02);  /* Slightly enlarge the block on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Add shadow on hover */
+}
+
+.text {
+  background-color: rgba(255, 87, 34, 0.8); 
+  color: white;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}

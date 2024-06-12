@@ -1,0 +1,38 @@
+/* src/components/Inventory/SearchFilter.module.css */
+.searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px; /* Set a consistent width */
+  height: 30px; /* Set a consistent height */
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 40px; /* Making the element oval-shaped */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.brand:hover, .selected {
+  background-color: orange;
+  color: black;
+}
+
+.logo {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.brandName {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap; /* Prevent text wrapping */
+}

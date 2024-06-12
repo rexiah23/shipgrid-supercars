@@ -1,0 +1,86 @@
+.container {
+  width: 100%; /* Ensure it uses the full width available */
+  max-width: 1200px; /* Optional: to limit the maximum width */
+  margin: 20px auto; /* Center the container */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4em;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 15px;
+  width: 200px; /* Fixed width for consistency */
+  text-align: center;
+}
+
+.tab:hover {
+  background-color: orange;
+}
+
+.activeTab {
+  background-color: orange;
+  text-decoration: none;
+}
+
+.escrowLogo {
+  height: 30px;
+  vertical-align: middle;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.number {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}

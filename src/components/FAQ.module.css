@@ -1,0 +1,26 @@
+.faq {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4; 
+}
+
+.item {
+  margin-bottom: 10px;
+}
+
+.question {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.answer {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,76 @@
+/* src/components/Header.module.css */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the header horizontally */
+    padding: 10px 20px;
+    background-color: black;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust as needed to control spacing between logo and HOME link */
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 10px 15px; /* Add padding for better visual effect */
+    border-radius: 5px; /* Optional: Add border-radius for rounded effect */
+  }
+  
+  .link:hover {
+    color: black;
+    background-color: orange;
+  }
+  
+  /* src/components/Header.module.css */
+.burger {
+    display: none; /* Initially hide the burger menu on desktop */
+    cursor: pointer;
+  }
+  
+  .burgerLine {
+    width: 22px; /* Width of the burger lines */
+    height: 3px; /* Height of the burger lines */
+    background-color: white;
+    margin: 5px 0; /* Space between the lines */
+    transition: all 0.3s ease;
+  }
+  
+/* src/components/Header.module.css */
+@media (max-width: 768px) {
+    .header {
+      position: relative; /* Ensures that the nav can be positioned absolutely relative to header */
+    }
+  
+    .nav {
+      flex-direction: column;
+      width: 100%; /* Full width */
+      display: none; /* Hide by default */
+      position: absolute;
+      top: 100%; /* Start right below the header which includes the burger icon */
+      left: 0;
+      background-color: black; /* Match the header background */
+      z-index: 1000;
+    }
+  
+    .navOpen {
+      display: flex; /* Display the nav when open */
+    }
+  
+    .burger {
+      display: block; /* Show burger icon on mobile */
+      z-index: 1001; /* Ensure the burger is above the nav menu */
+    }
+  }
+  

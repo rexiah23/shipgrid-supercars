@@ -1,0 +1,45 @@
+/* src/components/HeroSection.module.css */
+.hero {
+  position: relative; /* Required for positioning the pseudo-element */
+  background: url('/yellow_murci.png') no-repeat center center/cover;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero::before {
+  content: ''; /* Necessary for the pseudo-element to show */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 1; /* Ensures it sits above the background image but below the content */
+}
+
+.content {
+  position: relative; /* Ensures the content is above the overlay */
+  max-width: 960px;
+  padding: 20px;
+  z-index: 2; /* Higher z-index so it is on top of the overlay */
+}
+
+.ctaButton {
+  color: white;
+  /* font-style: italic; */
+  /* text-decoration: none; */
+  /* font-weight: bold; */
+  transition: color 0.3s, background-color 0.3s;
+  padding: 15px 22.5px; /* Increased padding by 50% */
+  border-radius: 5px; /* Optional: Add border-radius for rounded effect */
+  background-color: rgba(255, 87, 34, 0.8); 
+  font-size: 16px;
+}
+
+.ctaButton:hover {
+  background-color: orange;
+}

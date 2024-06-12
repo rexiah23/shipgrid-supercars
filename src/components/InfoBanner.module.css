@@ -1,0 +1,56 @@
+/* src/components/InfoBanner.module.css */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+}
+
+.bannerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; /* Adjusted for better spacing on all devices */
+  padding: 10px 0;
+}
+
+.left, .right {
+  display: flex;
+  flex-direction: column; /* Stack content vertically on smaller screens */
+}
+
+.label {
+  font-weight: bold;
+  margin: 5px 0; /* Increase margin for better separation */
+  text-decoration: none;
+}
+
+a.label {
+  color: white;
+  text-decoration: none;
+}
+
+a.label:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  .bannerInner {
+    flex-direction: column; /* Stack the left and right sections vertically */
+    align-items: center; /* Center align the content */
+    text-align: center; /* Center the text */
+  }
+
+  .left, .right {
+    width: 100%; /* Full width to utilize space */
+    justify-content: center;
+  }
+
+  .label {
+    font-size: 12px; /* Smaller font size for better readability */
+  }
+}

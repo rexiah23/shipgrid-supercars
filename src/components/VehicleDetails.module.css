@@ -1,0 +1,44 @@
+/* src/components/Inventory/VehicleDetails.module.css */
+.container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+.link {
+  color: #007BFF; /* Blue color for links */
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.galleryImage {
+  width: calc(50% - 10px);
+  height: auto;
+  border-radius: 8px;
+}

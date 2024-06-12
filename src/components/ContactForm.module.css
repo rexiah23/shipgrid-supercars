@@ -1,0 +1,36 @@
+/* src/components/ContactForm.module.css */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 10px 15px; /* Add padding for better visual effect */
+  border-radius: 5px; /* Optional: Add border-radius for rounded effect */
+}
+
+.button:hover {
+  color: black;
+  background-color: orange;
+}
+
+

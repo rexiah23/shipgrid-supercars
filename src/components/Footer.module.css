@@ -1,0 +1,98 @@
+.footer {
+  background-color: #1f1f1f; /* Darker background for a sleeker look */
+  color: #ddd; /* Softer white for text */
+  padding: 40px 20px; /* Increased padding for more space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Arial', sans-serif; /* Cleaner font */
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between; /* Space out the sections */
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px; /* Constrain the max width */
+  flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+.centeredSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 40px;
+}
+
+.logoArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactInfo p {
+  margin: 5px 0; /* Adjusted margin for better spacing */
+}
+
+.linksArea {
+  display: flex;
+  justify-content: space-around; /* Better spacing */
+  align-items: flex-start;
+  flex: 1;
+  margin-top: 20px;
+}
+
+.linkSection {
+  margin: 0 20px;
+  text-align: left;
+}
+
+.linkSection h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #555; /* Subtler border color */
+  padding-bottom: 5px;
+  font-size: 1.1em; /* Slightly larger font */
+}
+
+.linkSection a {
+  display: block;
+  margin: 5px 0;
+  color: #ddd; /* Softer link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.linkSection a:hover {
+  color: #fff; /* Highlight links on hover */
+}
+
+.rightsReserved {
+  font-size: 0.9em;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.contactLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #fff; /* Highlight contact links on hover */
+}
