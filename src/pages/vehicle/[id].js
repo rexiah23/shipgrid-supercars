@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import styles from '../../components/VehicleDetails.module.css';
+import styles from '../../components/VehicleDetails/VehicleDetails.module.css';
 
-import VehicleDetails from '@/components/VehicleDetails';
+import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
 
 import { vehicles } from '../../../data/vehicles';
 

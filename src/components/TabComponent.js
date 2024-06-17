@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import styles from './TabComponent.module.css';
 import Steps from './Steps';
-import BookCallCTA from './BookCallCTA';
 
 const steps = {
   Cash: [
-    { number: 1, title: 'Send us link for your desired vehicle', description: '' },
+    { number: 1, title: 'Select Your Supercar', description: 'Let us know which supercar you want.' },
     { number: 2, title: 'We will go onsite and send you detailed videos and our inspection results', description: '' },
     { number: 3, title: 'We will then send you a pro-forma invoice with wire details', description: '' },
     { number: 4, title: 'You wire the full funds to Shipgrid Solutions', description: '' },
@@ -13,52 +12,55 @@ const steps = {
     { number: 5, title: 'We will then ship, custom clear, and deliver the vehicle to you', description: '' },
   ],
   Escrow: [
-    { number: 1, title: 'Select Your Supercar', description: 'Send us a link for your desired supercar.' },
-    { number: 2, title: 'Inspection and Media', description: 'We will go onsite and send you detailed videos and our inspection results.' },
-    { number: 3, title: 'Optional PPI', description: 'You may choose to get a Pre-Purchase Inspection (PPI) completed at the official manufacturer dealership in Seoul (e.g., Lamborghini Seoul, Ferrari Seoul, etc.).' },
-    { number: 4, title: 'Escrow Agreement', description: 'We will send you a pro-forma invoice with wire details and an Escrow.com transaction for the supercar. Sign the Escrow.com transaction and wire the full funds to Escrow.com.' },
-    { number: 5, title: 'Shipping and Customs', description: 'Once Escrow.com confirms receipt of the funds, we will ship out and custom clear the supercar.' },
-    { number: 6, title: 'Arrival and Inspection', description: 'Once the supercar lands in Vancouver, BC, you have 1 full day to have a mechanic inspect the supercar at the port.' },
-    { number: 7, title: 'Release of Funds and Delivery', description: 'If you like the supercar, instruct Escrow.com to release the funds to us. You will automatically get the title and all necessary ownership documentation.' },
-    { number: 8, title: 'Return and Penalty', description: 'If you do not want to take delivery, you will be liable for the return shipping costs and all the customs clearance fees that were paid on the supercar.' },
+    { number: 1, title: 'Choose Supercar', description: 'Select and inform us about your desired supercar.' },
+    { number: 2, title: 'Inspection and PPI', description: 'We perform an onsite inspection and send detailed results. Optionally, schedule a Pre-Purchase Inspection (PPI) at a certified dealership in Seoul (e.g., Lamborghini Seoul).' },
+    { number: 3, title: 'Deposit Payment', description: 'Send a 10% deposit to secure the vehicle.' },
+    { number: 4, title: 'Sign Escrow Agreement', description: 'Review and sign the escrow agreement, then wire the full payment to Escrow.com.' },
+    { number: 5, title: 'Shipping and Clearance', description: 'After payment confirmation, we ship and handle customs clearance for your supercar.' },
+    { number: 6, title: 'Vehicle Inspection', description: 'Inspect the vehicle in Vancouver, BC within one day of its arrival.' },
+    { number: 7, title: 'Finalize Purchase', description: 'If satisfied, instruct Escrow.com to release funds to us, and receive the vehicle title and documents.' },
+    { number: 8, title: 'Return Policy', description: 'If unsatisfied, you are responsible for return shipping and customs fees.' },
   ],
-  // LetterOfCredit: [
-  //   { number: 1, title: 'Send us link for your desired vehicle', description: '' },
-  //   { number: 2, title: 'We will go onsite and send you detailed videos and our inspection results', description: '' },
-  //   { number: 3, title: 'We will then send you a pro-forma invoice with wire details and Escrow.com transaction for the vehicle', description: '' },
-  //   { number: 4, title: 'Sign the Escrow.com transaction and wire Escrow.com the full funds for the vehicle', description: '' },
-  //   { number: 5, title: 'We will ship out and custom clear the vehicle', description: '' },
-  //   { number: 6, title: 'Once it lands in Vancouver, BC, you have 1 full day to have a mechanic inspect the vehicle at the port', description: '' },
-  //   { number: 7, title: 'If you like the vehicle, you will tell Escrow.com to release the funds to us and you will automatically get the title and all necessary ownership documentation', description: '' },
-  //   { number: 8, title: 'If you don\'t like the car, you can reject the car. However, you will be liable for the shipping back home and all the customs clearance fees that were paid on the vehicle', description: '' },
-  // ],
+  LetterOfCredit: [
+    { number: 1, title: 'Select Your Supercar', description: 'Inform us about the supercar you wish to purchase.' },
+    { number: 2, title: 'Inspection and PPI', description: 'We conduct an onsite inspection and provide detailed videos and results. Optionally, you can request a Pre-Purchase Inspection (PPI) at an official dealership in Seoul, such as Lamborghini Seoul or Ferrari Seoul.' },
+    { number: 3, title: 'Letter of Credit Setup', description: 'We\'ll send a pro-forma invoice with details for setting up a Letter of Credit. Complete the setup to secure the transaction.' },
+    { number: 4, title: 'Shipping and Customs', description: 'Upon confirmation of the Letter of Credit, we proceed with shipping and customs clearance for your supercar.' },
+    { number: 5, title: 'Vehicle Inspection', description: 'Inspect the vehicle in Vancouver, BC within a day of its arrival. Ensure everything is as per your expectations.' },
+    { number: 6, title: 'Finalize Transaction', description: 'Confirm satisfaction to release the Letter of Credit funds to us, and receive all necessary ownership documents.' },
+    { number: 7, title: 'Return Policy', description: 'If the supercar does not meet your expectations, you are responsible for return shipping and any associated customs fees.' },
+],
+
 };
 
 const TabComponent = () => {
-  const [activeTab, setActiveTab] = useState('Escrow')
+  const [activeTab, setActiveTab] = useState('Escrow');
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Select Payment Method</h2>
       <div className={styles.tabs}>
+        <h3>Paying with:</h3>
         <div
           className={`${styles.tab} ${activeTab === 'Cash' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Cash')}
         >
           Cash
+          <span className={styles.tabDescription}>Cheapest</span>
         </div>
         <div
           className={`${styles.tab} ${activeTab === 'Escrow' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('Escrow')}
         >
           <img src={'/logos/escrowcom.svg'} alt="Escrow" className={styles.escrowLogo} />
+          <span className={styles.tabDescription}>Safest</span>
         </div>
-        {/* <div
+        <div
           className={`${styles.tab} ${activeTab === 'LetterOfCredit' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('LetterOfCredit')}
         >
           Letter of Credit
-        </div> */}
+          <span className={styles.tabDescription}>No Deposit Required</span>
+        </div>
       </div>
       <div className={styles.content}>
         <Steps steps={steps[activeTab]} />
@@ -68,3 +70,4 @@ const TabComponent = () => {
 };
 
 export default TabComponent;
+

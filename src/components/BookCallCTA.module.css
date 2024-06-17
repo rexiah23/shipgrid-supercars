@@ -1,27 +1,35 @@
-/* components/BookCallButton.module.css */
 .buttonContainer {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  padding: 20px;
+  width: 100%;  /* Make sure container takes full width to allow centering */
+  justify-content: center;
+  align-items: center;
 }
+
 
 .button {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s, background-color 0.3s;
-  padding: 15px 22.5px; /* Increased padding by 50% */
-  border-radius: 5px; /* Optional: Add border-radius for rounded effect */
-  background-color: black;
-  font-size: 16px;
-  max-width: 200px; /* Set the max width */
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  border-radius: 10px; /* Add more border-radius for a smoother rounded effect */
+  background-color: #28a745; /* Vibrant 'Go' Green */
+  font-size: 18px; /* Slightly increased font size for better readability */
+  width: 350px; /* Set the width */
+  height: 60px;
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflow content */
   text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
 .button:hover {
-  color: black;
-  background-color: orange;
+  color: white; /* Keep text color white on hover for contrast */
+  background-color: #218838; /* A slightly darker green for hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.button:active {
+  background-color: #1e7e34; /* Even darker green for active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
+  transform: translateY(2px); /* Add a slight downwards movement on click */
 }

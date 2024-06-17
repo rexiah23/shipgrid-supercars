@@ -56,7 +56,6 @@
 }
 
 .linkSection {
-  margin: 0 20px;
   text-align: left;
 }
 
@@ -96,3 +95,143 @@
 .contactLink:hover {
   color: #fff; /* Highlight contact links on hover */
 }
+
+.locationSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+    width: 100%;
+    text-align: left;
+}
+
+.locationSection h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.locationSection p {
+    color: #ddd;
+    margin: 5px 0;
+}
+
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  background-color: #1f1f1f;
+  color: white;
+  padding-top: 18px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  align-items: center;
+  text-align: center;
+}
+
+.logoArea {
+  margin-bottom: 20px;
+}
+
+.contactInfo {
+  margin-bottom: 20px;
+}
+
+.contactInfo p {
+  margin: 5px 0;
+}
+
+.linksArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.linkSection {
+  margin-bottom: 20px;
+}
+
+.linkSection h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.linkSection a {
+  display: block;
+  margin: 5px 0;
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linkSection a:hover {
+  color: #fff;
+}
+
+.ctaSection {
+  margin-bottom: 20px;
+}
+
+.locationSection {
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.locationSection h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.locationSection p {
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.rightsReserved {
+  font-size: 0.9em;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.contactLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .linksArea {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .contactInfo, .ctaSection, .locationSection {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+

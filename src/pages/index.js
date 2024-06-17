@@ -18,7 +18,7 @@ export default function Home() {
           <FeatureBlocks />
           <VehicleGrid vehicles={vehicles} />
           <ShippingMap />
-          <FAQ />
+          <FAQ showTitle={true} displayLeft={true}/>
           <ReadyToCall />
           {/* <ContactForm /> */}
       </main>

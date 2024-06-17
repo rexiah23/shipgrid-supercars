@@ -11,14 +11,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px; /* Set a consistent width */
-  height: 30px; /* Set a consistent height */
-  padding: 10px;
+  width: 136px; /* Set a consistent width */
+  height: 50px; /* Adjust height if needed */
+  padding: 5px; /* Adjust padding if needed */
   background-color: black;
   color: white;
   border-radius: 40px; /* Making the element oval-shaped */
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
 .brand:hover, .selected {
@@ -27,12 +28,12 @@
 }
 
 .logo {
-  height: 20px;
+  height: 20px; /* Adjust size if necessary to fit within the brand height */
   margin-right: 10px;
 }
 
 .brandName {
-  font-size: 16px;
+  font-size: 14px; /* Adjust font size to ensure it fits within the button */
   font-weight: bold;
   white-space: nowrap; /* Prevent text wrapping */
 }

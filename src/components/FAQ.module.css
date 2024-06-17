@@ -16,11 +16,26 @@
   border: none;
   text-align: left;
   cursor: pointer;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.toggleIcon {
+  margin-right: 10px;
   font-size: 16px;
+  width: 20px; /* Fixed width for consistent alignment */
 }
 
 .answer {
   padding: 10px;
   background-color: white;
   border: 1px solid #ccc;
+  font-size: 24px;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
 }

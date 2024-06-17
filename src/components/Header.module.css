@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     margin-right: 20px; /* Adjust as needed to control spacing between logo and HOME link */
+    margin-left: 20px;
   }
   
   .nav {
@@ -32,6 +33,33 @@
     color: black;
     background-color: orange;
   }
+
+  .link.specialLink {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    padding: 15px 22.5px; /* Increased padding by 50% */
+    border-radius: 10px; /* More border-radius for a smoother rounded effect */
+    background-color: #28a745; /* A pleasant green color for "go" */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow content */
+    text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+
+  }
+
+  .link.specialLink:hover {
+    background-color: #218838; /* A slightly darker green for hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  }
+
+  .link.specialLink:active {
+    background-color: #1e7e34; /* Even darker green for active state */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
+    transform: translateY(2px); /* Add a slight downwards movement on click */
+  }
+
   
   /* src/components/Header.module.css */
 .burger {
@@ -47,6 +75,12 @@
     transition: all 0.3s ease;
   }
   
+  .mobileContent {
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    /* margin-right: 12px; */
+  }
 /* src/components/Header.module.css */
 @media (max-width: 768px) {
     .header {

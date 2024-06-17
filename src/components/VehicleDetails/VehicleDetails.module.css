@@ -1,0 +1,178 @@
+/* src/components/Inventory/VehicleDetails.module.css */
+.container {
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+
+.mainImage {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+.link {
+  color: #007BFF; /* Blue color for links */
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.galleryImage {
+  width: calc(20% - 10px);
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.selectedImage {
+  border: 2px solid orange;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.mainButton {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  width: 250px;
+}
+
+.secondaryButton {
+  background-color: white;
+  color: orange;
+  padding: 10px 20px;
+  border: 2px solid orange;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  width: 250px;
+}
+
+.carfaxImage {
+  width: 100px; /* Adjust as needed */
+  margin-top: 10px;
+}
+
+/* DetailTabs.module.css */
+.detailContainer {
+  margin: 24px 0;
+}
+
+.tabButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #e5e7eb; /* Light gray */
+  color: #1f2937; /* Dark gray */
+  border: none;
+}
+
+.activeButton {
+  background-color: #3b82f6; /* Blue */
+  color: white;
+}
+
+.detailsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  width: 50%; /* Ensuring two items per row */
+}
+
+.detailIcon {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+/* VehicleDetails.module.css */
+
+.availabilityTag {
+  background-color: #28a745; /* Green for availability */
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: inline-block; /* This makes it easier to position */
+}
+
+/* Keep other styles unchanged */
+
+
+.tabButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #e5e7eb; /* Light gray */
+  color: #1f2937; /* Dark gray */
+  border: none;
+  cursor: pointer;
+}
+
+.activeButton {
+  background-color: #3b82f6; /* Blue */
+  color: white;
+}
+
+.escrowLogo {
+  height: 24px; /* Maintain image height */
+  vertical-align: middle;
+  transform: translateY(-2px); /* Adjust based on exact alignment needs */
+}
+

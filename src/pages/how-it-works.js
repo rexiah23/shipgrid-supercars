@@ -10,8 +10,8 @@ const HowItWorksPage = () => {
             <main>
                 {/* <HowItWorks /> */}
                 <TabComponent />
-                <BookCallCTA />
-                <FAQ />
+                <BookCallCTA style={{ justifyContent: 'start' }}/>
+                <FAQ showTitle={true}/>
             </main>
         </div>
     );

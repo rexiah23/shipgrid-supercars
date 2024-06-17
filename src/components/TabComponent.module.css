@@ -27,8 +27,9 @@
   padding: 10px 20px;
   border-radius: 5px;
   margin: 10px 15px;
-  width: 200px; /* Fixed width for consistency */
+  width: 230px;
   text-align: center;
+  border: 3px solid orange;
 }
 
 .tab:hover {
@@ -83,4 +84,11 @@
   justify-content: center;
   align-items: center;
   margin-right: 10px;
+}
+
+.tabDescription {
+  display: block; /* Ensure the text is on a new line */
+  font-size: 0.8em; /* Smaller font size for the description */
+  opacity: 0.7; /* Slightly transparent for a subtle effect */
+  margin-top: 5px; /* Space between the tab label and description */
 }

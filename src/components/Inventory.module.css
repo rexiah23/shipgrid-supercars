@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+.matchingCount {
+  margin-bottom: 10px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -40,4 +46,38 @@
   margin-top: 10px;
   color: blue;
   text-decoration: underline;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  text-decoration: none;
+  color: inherit;
+  width: 300px; /* Adjust width as needed */
+  min-width: 250px; /* Ensuring a minimum width */
+  overflow: hidden; /* Adds overflow handling */
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.details {
+  width: 100%; /* Ensure details use the available width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ensure responsive typography within details */
+.details .MuiTypography-root {
+  text-align: center; /* Center align text to manage narrow widths */
+  width: 100%; /* Full width to use available space */
 }
