@@ -1,4 +1,3 @@
-// src/components/DetailedSteps/DetailedSteps.js
 import styles from './Steps.module.css';
 
 const Steps = ({  steps }) => {

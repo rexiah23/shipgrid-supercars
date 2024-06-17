@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu' 
 import styles from './Header.module.css'
@@ -8,19 +8,33 @@ import EmailIcon from '@mui/icons-material/Email'
 import PhoneIcon from '@mui/icons-material/Phone'      
 
 const HeaderMobile = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const closeMenu = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   return (
     <header style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'black', padding: '18px 0' }}>
-
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '90%'}}>
         <div style={{ display: 'flex', color: 'white', justifyContent: 'space-between' }}>
           <PhoneIcon onClick={() => window.location.href = 'tel:+16476777891'} style={{ marginRight: '10px', cursor: 'pointer' }} />
@@ -39,7 +53,7 @@ const HeaderMobile = () => {
       </div>
 
       {isOpen && (
-        <div style={{ width: '100%' }}>
+        <div ref={menuRef} style={{ width: '100%' }}>
           <nav style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
             <Link className={styles.link} href="/" style={{ color: 'white', padding: '8px' }} onClick={closeMenu}>HOME</Link>
             <Link className={styles.link} href="/how-it-works" style={{ color: 'white', padding: '8px' }} onClick={closeMenu}>HOW IT WORKS</Link>
