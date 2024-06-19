@@ -29,8 +29,7 @@ const steps = {
     { number: 5, title: 'Vehicle Inspection', description: 'Inspect the vehicle in Vancouver, BC within a day of its arrival. Ensure everything is as per your expectations.' },
     { number: 6, title: 'Finalize Transaction', description: 'Confirm satisfaction to release the Letter of Credit funds to us, and receive all necessary ownership documents.' },
     { number: 7, title: 'Return Policy', description: 'If the supercar does not meet your expectations, you are responsible for return shipping and any associated customs fees.' },
-],
-
+  ],
 };
 
 const TabComponent = () => {
@@ -38,36 +37,37 @@ const TabComponent = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.tabs}>
-        <h3>Paying with:</h3>
-        <div
-          className={`${styles.tab} ${activeTab === 'Cash' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('Cash')}
-        >
-          Cash
-          <span className={styles.tabDescription}>Cheapest</span>
+      <div className={styles.innerContainer}>
+        <h3 className={styles.title}>Paying with:</h3>
+        <div className={styles.tabs}>
+          <div
+            className={`${styles.tab} ${activeTab === 'Cash' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('Cash')}
+          >
+            Cash
+            <span className={styles.tabDescription}>Cheapest</span>
+          </div>
+          <div
+            className={`${styles.tab} ${activeTab === 'Escrow' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('Escrow')}
+          >
+            <img src={'/logos/escrowcom.svg'} alt="Escrow" className={styles.escrowLogo} />
+            <span className={styles.tabDescription}>Safest</span>
+          </div>
+          <div
+            className={`${styles.tab} ${activeTab === 'LetterOfCredit' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('LetterOfCredit')}
+          >
+            Letter of Credit
+            <span className={styles.tabDescription}>No Deposit Required</span>
+          </div>
         </div>
-        <div
-          className={`${styles.tab} ${activeTab === 'Escrow' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('Escrow')}
-        >
-          <img src={'/logos/escrowcom.svg'} alt="Escrow" className={styles.escrowLogo} />
-          <span className={styles.tabDescription}>Safest</span>
+        <div className={styles.content}>
+          <Steps steps={steps[activeTab]} />
         </div>
-        <div
-          className={`${styles.tab} ${activeTab === 'LetterOfCredit' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('LetterOfCredit')}
-        >
-          Letter of Credit
-          <span className={styles.tabDescription}>No Deposit Required</span>
-        </div>
-      </div>
-      <div className={styles.content}>
-        <Steps steps={steps[activeTab]} />
       </div>
     </div>
   );
 };
 
 export default TabComponent;
-

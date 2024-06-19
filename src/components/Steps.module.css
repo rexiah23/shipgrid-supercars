@@ -1,20 +1,21 @@
-/* src/components/DetailedSteps/Steps.module.css */
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Ensures 4 columns */
-  gap: 20px; /* Adds space between the steps */
-  margin: 20px 0; /* Adds vertical margin */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .step {
+  flex: 0 0 calc(33.333% - 20px); /* Set a fixed width for each step */
+  min-width: 200px;
+  max-width: calc(33.333% - 20px);
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Aligns content within each step */
-  height: 300px; /* Ensures consistent height across all steps */
+  justify-content: space-between;
 }
 
 .header {
@@ -27,12 +28,30 @@
   background-color: red;
   color: white;
   font-size: 20px;
-  padding: 10px;
-  border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
   margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .step {
+    flex: 0 0 calc(50% - 20px); /* Two steps per row */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .step {
+    flex: 0 0 100%; /* One step per row */
+    max-width: 100%;
+  }
+}
+
+.title, .step, .tabDescription {
+  font-size: 0.8em;
 }
