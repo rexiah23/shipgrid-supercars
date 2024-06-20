@@ -90,7 +90,7 @@ const ImageOverlay = ({ images, selectedImage, onClose, onSelectNext, onSelectPr
 
 const SmallImageDisplay = ({ vehicle, selectedImage, onSelectImage }) => {
   return (
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, marginTop: '8px' }}>
           {vehicle.gallery.map((img, index) => (
               <Card
                   key={index}
