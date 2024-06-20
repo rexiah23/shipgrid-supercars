@@ -52,7 +52,7 @@ const FooterMobile = () => {
 
 const FooterDesktop = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1f1f1f', color: 'white', paddingTop: '18px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1f1f1f', color: 'white', paddingTop: '36px' }}>
       <footer style={{ display: 'flex', flexDirection: 'column', width: '40%', alignItems: 'space-between' }}>
 
 
