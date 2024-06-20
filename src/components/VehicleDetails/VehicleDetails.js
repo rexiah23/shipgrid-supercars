@@ -14,7 +14,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PaletteIcon from '@mui/icons-material/Palette'; // Icon for exterior and interior colors
 import BuildIcon from '@mui/icons-material/Build'; // Icon for transmission, drivetrain, and engine
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import Modal from '@mui/material';
+import Modal from '@mui/material/Modal';
 import "./VehicleDetails.module.css";
 import BookCallCTA from '../BookCallCTA';
 import useMediaQuery from '@mui/material/useMediaQuery'    
@@ -184,7 +184,7 @@ const DetailTabs = ({ vehicle, width }) => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Tabs sx={{flex: 1}} value={value} onChange={handleChange} aria-label="vehicle details tabs">
-                <Tab label="Details" />
+                <Tab label="Details"/>
                 <Tab label="Cash" />
                 <Tab 
                     icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 24, verticalAlign: 'middle', transform: 'translateY(50%)' }} />} 
@@ -348,7 +348,7 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                     <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
                         View tabs for full pricing breakdown
                     </Typography>
-                    <BookCallCTA text='GET IT NOW' style={{ marginTop: '16px', border: 'none', width: '100%', boxShadow: 'none'}} position="flex-start"/>
+                    <BookCallCTA text='START PURCHASE' style={{ marginTop: '16px', border: 'none', width: '100%', boxShadow: 'none'}} position="flex-start"/>
                     <DetailTabs vehicle={vehicle}/>
                 </Box>
             </Box>

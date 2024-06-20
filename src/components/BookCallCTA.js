@@ -14,7 +14,7 @@ const BookCallCTA = ({ text, style, position = 'center', size = 'md' }) => {
                 onClick={handleClick}
                 style={style}
             >
-                {text || 'GET YOUR SUPERCAR'}
+                {text || 'START PURCHASE'}
             </button>
         </div>
     );

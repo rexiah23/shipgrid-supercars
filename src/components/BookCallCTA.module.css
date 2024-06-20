@@ -12,7 +12,7 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+
   border-radius: 10px; /* Add more border-radius for a smoother rounded effect */
   background-color: #28a745; /* Vibrant 'Go' Green */
   font-size: 18px; /* Slightly increased font size for better readability */
@@ -21,7 +21,6 @@
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflow content */
   text-overflow: ellipsis; /* Adds ellipsis for overflow text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
 .button:hover {

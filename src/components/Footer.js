@@ -53,7 +53,7 @@ const FooterMobile = () => {
 const FooterDesktop = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1f1f1f', color: 'white', paddingTop: '36px' }}>
-      <footer style={{ display: 'flex', flexDirection: 'column', width: '40%', alignItems: 'space-between' }}>
+      <footer style={{ display: 'flex', flexDirection: 'column', marginLeft: '124px', marginRight: '124px', alignItems: 'space-between' }}>
 
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -75,7 +75,7 @@ const FooterDesktop = () => {
 
           </div>
 
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', marginLeft: '125px' }}>
             <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column', marginRight: '125px'}}>
               <h3>Company</h3>
               <a href="/about">About Us</a>
@@ -97,7 +97,7 @@ const FooterDesktop = () => {
             <p><strong>South Korea:</strong> 87-6, Jangjamaeul 8 danjibuyeongapat 801-810, Geumcheon-dong, Sangdang-gu Cheongju-si, Chungcheongbuk-do</p>
           </div>
 
-          <div style={{ alignSelf: 'center'}}>
+          <div style={{ alignSelf: 'center', marginLeft: '125px'}}>
             <BookCallCTA />
           </div>
 

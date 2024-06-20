@@ -14,7 +14,7 @@ const Hero = ({ isMobile }) => {
                     </ul>
                 </div>
                 <div style={{ marginTop: "-20px"}}>
-                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position="center" style={{ margin: '20px' }}/>
+                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position="flex-start" style={{ margin: '20px' }}/>
                 </div>
             </div>
         </div>

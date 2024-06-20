@@ -14,7 +14,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PaletteIcon from '@mui/icons-material/Palette'; // Icon for exterior and interior colors
 import BuildIcon from '@mui/icons-material/Build'; // Icon for transmission, drivetrain, and engine
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import Modal from '@mui/material';
+import Modal from '@mui/material/Modal';
 import "./VehicleDetails.module.css";
 import BookCallCTA from '../BookCallCTA';
 import { DriveEta } from '@mui/icons-material';
@@ -86,6 +86,26 @@ const ImageOverlay = ({ images, selectedImage, onClose, onSelectNext, onSelectPr
             </Box>
         </Modal>
     );
+};
+
+const SmallImageDisplay = ({ vehicle, selectedImage, onSelectImage }) => {
+  return (
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+          {vehicle.gallery.map((img, index) => (
+              <Card
+                  key={index}
+                  sx={{ width: '20%', cursor: 'pointer', border: selectedImage === img ? '2px solid orange' : 'none' }}
+                  onClick={() => onSelectImage(img)}
+              >
+                  <CardMedia
+                      component="img"
+                      image={img}
+                      alt={`${vehicle.make} ${vehicle.model} image ${index + 1}`}
+                  />
+              </Card>
+          ))}
+      </Box>
+  );
 };
 
 const VehicleDetailsMobile = ({ vehicle }) => {
@@ -403,6 +423,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       
       <Box sx={{ width: '100%', maxWidth: '600px', padding: '0 20px 20px 0'}}>
         <MainImage src={selectedImage} alt={`${vehicle.make} ${vehicle.model}`} onOpen={handleOpenOverlay} />
+        <SmallImageDisplay vehicle={vehicle} selectedImage={selectedImage} onSelectImage={setSelectedImage} />
     </Box>
       
       <div style={{ display: 'flex', flexDirection: 'column'}}>
@@ -412,7 +433,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
           View tabs for full pricing breakdown
       </Typography>
-      <BookCallCTA text='GET IT NOW' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '24px', marginLeft: '15px', width: '100%'}}/>
+      <BookCallCTA text='START PURCHASE' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '24px', marginLeft: '15px', width: '100%'}}/>
       </div>
       
       <div style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden', width: '100%' }}>
@@ -424,7 +445,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
               icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 15 }} />} 
               style={{ minWidth: '50px' }}
             />
-            <Tab label="Letter of Credit" style={{ minWidth: '50px' }} />
+            <Tab label="Letter of Credit" style={{ maxWidth: '200px', fontSize: '0.8em' }} />
           </Tabs>
             {tabPanels[value]}
         </div>
