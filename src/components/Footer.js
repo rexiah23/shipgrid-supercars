@@ -35,7 +35,7 @@ const FooterMobile = () => {
           </div>
         </div>
         <div className={styles.ctaSection}>
-          <BookCallCTA />
+          <BookCallCTA style={{ width:'300px', fontSize: '0.9rem'}}/>
         </div>
         <div className={styles.locationSection}>
           <h3>Our Offices</h3>

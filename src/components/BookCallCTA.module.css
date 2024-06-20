@@ -1,7 +1,7 @@
 .buttonContainer {
   display: flex;
   width: 100%;  /* Make sure container takes full width to allow centering */
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -34,4 +34,21 @@
   background-color: #1e7e34; /* Even darker green for active state */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
   transform: translateY(2px); /* Add a slight downwards movement on click */
+}
+
+.button {
+  font-size: 16px;
+}
+
+.button.sm {
+  font-size: 14px;
+  width: 250px;
+}
+
+.button.md {
+  font-size: 16px;
+}
+
+.button.lg {
+  font-size: 20px;
 }

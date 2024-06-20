@@ -17,6 +17,19 @@
   justify-content: center;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  text-decoration: none;
+  color: inherit;
+  width: 300px; /* Adjust width as needed */
+}
+
 .image {
   width: 100%;
   height: auto;

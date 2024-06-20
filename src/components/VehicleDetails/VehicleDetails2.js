@@ -14,17 +14,17 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PaletteIcon from '@mui/icons-material/Palette'; // Icon for exterior and interior colors
 import BuildIcon from '@mui/icons-material/Build'; // Icon for transmission, drivetrain, and engine
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import Modal from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery'    
+
 import "./VehicleDetails.module.css";
 import BookCallCTA from '../BookCallCTA';
-import useMediaQuery from '@mui/material/useMediaQuery'    
-import VehicleDetailsMobile from './VehicleDetailsMobile';
 
 function formatNumberWithCommas(number) {
     return number.toLocaleString('en-CA');  // 'en-CA' is the locale for English-speaking Canada
 }
 
-const DetailTabs = ({ vehicle, width }) => {
+
+const DetailTabs = ({ vehicle }) => {
     const [value, setValue] = useState(0);
 
     const openPdf = (pdfUrl) => {
@@ -32,32 +32,32 @@ const DetailTabs = ({ vehicle, width }) => {
     };
 
     const overviewContent = (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+        <Grid container spacing={2} alignItems="center">
+            <Grid item xs={6} display="flex" alignItems="center">
                 <SpeedIcon sx={{ marginRight: 1 }} />
                 <Typography>{formatNumberWithCommas(vehicle.kms)} km</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <DirectionsCarIcon sx={{ marginRight: 1 }} />
                 <Typography>{vehicle.bodyStyle}</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <PaletteIcon sx={{ marginRight: 1 }} />
                 <Typography>{vehicle.exteriorColor} / {vehicle.interiorColor}</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <BuildIcon sx={{ marginRight: 1 }} />
                 <Typography>{vehicle.transmission} · {vehicle.drivetrain} · {vehicle.engine}</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <LocalGasStationIcon sx={{ marginRight: 1 }} />
                 <Typography>{vehicle.fuelType}</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <PeopleIcon sx={{ marginRight: 1 }} />
                 <Typography>{vehicle.numberOfOwners} previous owners</Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <ReportIcon sx={{ marginRight: 1 }} />
                 {vehicle.insuranceHistoryPdf ? (
                     vehicle.accidentHistory ? (
@@ -72,8 +72,8 @@ const DetailTabs = ({ vehicle, width }) => {
                 ) : (
                     <Typography>N/A</Typography>
                 )}
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            </Grid>
+            <Grid item xs={6} display="flex" alignItems="center">
                 <AssessmentIcon sx={{ marginRight: 1 }} />  
                 {vehicle.conditionReportPdf ? (
                     <Typography component="a" href="#" onClick={() => openPdf(vehicle.conditionReportPdf)} sx={{ cursor: 'pointer' }}>
@@ -82,9 +82,11 @@ const DetailTabs = ({ vehicle, width }) => {
                 ) : (
                     <Typography>N/A</Typography>
                 )}
-            </Box>
-        </Box>
+            </Grid>
+
+        </Grid>
     );
+    
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -132,11 +134,11 @@ const DetailTabs = ({ vehicle, width }) => {
     // Calculate total amount for escrow
     const totalAmountEscrow = escrowLineItems.reduce((acc, item) => acc + item.amount, 0);
 
-    // Escrow-specific line items (no cash discount)
-    const letterOfCreditLineItems = [...commonLineItems];
+     // Escrow-specific line items (no cash discount)
+     const letterOfCreditLineItems = [...commonLineItems];
 
-    // Calculate total amount for letter of credit
-    const totalAmountLetterOfCredit = letterOfCreditLineItems.reduce((acc, item) => acc + item.amount, 0);
+     // Calculate total amount for escrow
+     const totalAmountLetterOfCredit = letterOfCreditLineItems.reduce((acc, item) => acc + item.amount, 0);
 
     const cashContent = (
         <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
@@ -164,11 +166,11 @@ const DetailTabs = ({ vehicle, width }) => {
 
     const letterOfCreditContent = (
         <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
-            {letterOfCreditLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
+            {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
                     <span>Total</span>
-                    <span>CAD {formatCurrency(totalAmountLetterOfCredit)}</span>
+                    <span>CAD {formatCurrency(totalAmountEscrow)}</span>
                 </Typography>
             </Box>
         </Box>
@@ -182,8 +184,8 @@ const DetailTabs = ({ vehicle, width }) => {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Tabs sx={{flex: 1}} value={value} onChange={handleChange} aria-label="vehicle details tabs">
+        <Box sx={{ width: '100%' }}>
+            <Tabs value={value} onChange={handleChange} aria-label="vehicle details tabs">
                 <Tab label="Details" />
                 <Tab label="Cash" />
                 <Tab 
@@ -192,7 +194,7 @@ const DetailTabs = ({ vehicle, width }) => {
                 />
                 <Tab label="Letter of Credit"/>
             </Tabs>
-            <Box sx={{ p: 2, flex: 1 }}>
+            <Box sx={{ p: 3 }}>
                 {tabPanels[value]}
             </Box>
         </Box>
@@ -201,16 +203,16 @@ const DetailTabs = ({ vehicle, width }) => {
 
 const MainImage = ({ src, alt, onOpen }) => {
     return (
-        <Card onClick={onOpen} sx={{ width: '100%', maxWidth: '600px', margin: '0 auto', cursor: 'pointer' }}>
+        <Card onClick={onOpen}>
             <CardMedia
                 component="img"
                 image={src}
                 alt={alt}
-                sx={{ width: '100%', height: 'auto', aspectRatio: '4/3', borderRadius: '8px' }}
+                sx={{ width: '100%', borderRadius: '8px', cursor: 'pointer' }}
             />
         </Card>
     );
-};
+}
 
 const SmallImageDisplay = ({ vehicle, selectedImage, onSelectImage }) => {
     return (
@@ -287,8 +289,8 @@ const ImageOverlay = ({ images, selectedImage, onClose, onSelectNext, onSelectPr
 const VehicleDetailsDesktop = ({ vehicle }) => {
     const [selectedImage, setSelectedImage] = useState(vehicle.gallery[0]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-    const router = useRouter()
-
+    const router = useRouter(); // Hook for routing
+  
     const handleOpenOverlay = () => {
         setIsOverlayOpen(true);
     };
@@ -309,13 +311,17 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
         setSelectedImage(vehicle.gallery[prevIndex]);
     };
 
+    const handleBookCall = () => {
+        window.open('https://calendly.com/shipgrid/supercar-import-discovery-call?month=2024-06', '_blank');
+    };
+
     const handleViewAllInventory = () => {
         router.push('/inventory'); // Navigate to the inventory page
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-            <IconButton onClick={handleViewAllInventory} sx={{ color: 'inherit', alignSelf: 'flex-start', padding: '0 20px 20px 0' }}>
+        <Box sx={{ maxWidth: 1200, mx: 'auto', p: 2 }}>
+            <IconButton onClick={handleViewAllInventory} sx={{ color: 'inherit' }}>
                 <ArrowBackIosNewIcon sx={{ verticalAlign: 'middle' }} />
                 <Typography variant="body2" sx={{ verticalAlign: 'middle', ml: 0.5 }}>View all Inventory</Typography>
             </IconButton>
@@ -328,12 +334,87 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                     onSelectPrev={handlePrevImage}
                 />
             }
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Box sx={{ width: '100%', maxWidth: '600px', padding: '0 20px 20px 0'}}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+                <Box>
                     <MainImage src={selectedImage} alt={`${vehicle.make} ${vehicle.model}`} onOpen={handleOpenOverlay} />
                     <SmallImageDisplay vehicle={vehicle} selectedImage={selectedImage} onSelectImage={setSelectedImage} />
                 </Box>
-                <Box sx={{ padding: '0 20px 20px 0'}}>
+                <Box>
+                    <Typography variant="h5" sx={{ mb: 2 }}>
+                        <span style={{ fontWeight: 'bold' }}>
+                            {vehicle.year} {vehicle.make} {vehicle.model}
+                        </span>
+                        <span> {vehicle.trim}</span>
+                    </Typography>
+                    <Typography variant="h6">
+                        ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>CAD</Typography>
+                    </Typography>
+                    <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
+                        View tabs for full pricing breakdown
+                    </Typography>
+                    <BookCallCTA text='GET IT NOW' style={{ marginTop: '16px', border: 'none', boxShadow: 'none'}}/>
+
+                    <DetailTabs vehicle={vehicle}/>
+                </Box>
+            </Box>
+        </Box>
+    );
+};
+
+const VehicleDetailsMobile = ({ vehicle }) => {
+    const [selectedImage, setSelectedImage] = useState(vehicle.gallery[0]);
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+    const router = useRouter(); // Hook for routing
+  
+    const handleOpenOverlay = () => {
+        setIsOverlayOpen(true);
+    };
+
+    const handleCloseOverlay = () => {
+        setIsOverlayOpen(false);
+    };
+
+    const handleNextImage = () => {
+        const currentIndex = vehicle.gallery.indexOf(selectedImage);
+        const nextIndex = (currentIndex + 1) % vehicle.gallery.length;
+        setSelectedImage(vehicle.gallery[nextIndex]);
+    };
+
+    const handlePrevImage = () => {
+        const currentIndex = vehicle.gallery.indexOf(selectedImage);
+        const prevIndex = (currentIndex - 1 + vehicle.gallery.length) % vehicle.gallery.length;
+        setSelectedImage(vehicle.gallery[prevIndex]);
+    };
+
+    const handleBookCall = () => {
+        window.open('https://calendly.com/shipgrid/supercar-import-discovery-call?month=2024-06', '_blank');
+    };
+
+    const handleViewAllInventory = () => {
+        router.push('/inventory'); // Navigate to the inventory page
+    };
+
+    return (
+        <Box sx={{ display: 'flex', maxWidth: 1200, mx: 'auto', p: 2 }}>
+            <IconButton onClick={handleViewAllInventory} sx={{ color: 'inherit' }}>
+                <ArrowBackIosNewIcon sx={{ verticalAlign: 'middle' }} />
+                <Typography variant="body2" sx={{ verticalAlign: 'middle', ml: 0.5 }}>View all Inventory</Typography>
+            </IconButton>
+            {isOverlayOpen && 
+                <ImageOverlay 
+                    images={vehicle.gallery}
+                    selectedImage={selectedImage}
+                    onClose={handleCloseOverlay}
+                    onSelectNext={handleNextImage}
+                    onSelectPrev={handlePrevImage}
+                />
+            }
+            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+                <Box>
+                    <MainImage src={selectedImage} alt={`${vehicle.make} ${vehicle.model}`} onOpen={handleOpenOverlay} />
+                    <SmallImageDisplay vehicle={vehicle} selectedImage={selectedImage} onSelectImage={setSelectedImage} />
+                </Box>
+                <Box>
                     <Typography variant="h5" sx={{ mb: 2 }}>
                         <span style={{ fontWeight: 'bold' }}>
                             {vehicle.year} {vehicle.make} {vehicle.model}
@@ -356,14 +437,13 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
 };
 
 const VehicleDetails = ({ vehicle }) => {
-    const isMobile = useMediaQuery('(max-width:768px)') // Media query hook
-  
-    if (isMobile) {
-      return <VehicleDetailsMobile vehicle={vehicle} />
-    }
-  
-    return <VehicleDetailsDesktop vehicle={vehicle}/>
+  const isMobile = useMediaQuery('(max-width:768px)') // Media query hook
+
+  if (isMobile) {
+    return <VehicleDetailsMobile vehicle={vehicle} />
   }
-  
-  export default VehicleDetails
-  
+
+  return <VehicleDetailsDesktop vehicle={vehicle}/>
+}
+
+export default VehicleDetails

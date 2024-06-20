@@ -6,7 +6,7 @@ const ReadyToCall = () => {
     return (
         <div className={styles.container}>
             <h2>ARE YOU READY TO IMPORT YOUR NEXT SUPERCAR FOR 30% OFF?</h2>
-            <BookCallCTA /> 
+            <BookCallCTA position='center'/> 
         </div>
     );
 };

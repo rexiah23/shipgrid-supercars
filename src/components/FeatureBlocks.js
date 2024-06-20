@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import styles from './FeatureBlocks.module.css'; // Assuming you use CSS Modules
 
-const FeatureBlocks = () => {
+const FeatureBlocks = () => {;
+
     return (
         <div className={styles.container}>
             <Link href="/inventory" passHref className={styles.feature} style={{ backgroundImage: 'url(/blue_murci.png)' }}>

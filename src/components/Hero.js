@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import styles from './Hero.module.css'; 
+import BookCallCTA from './BookCallCTA';
 
-const Hero = () => {
+const Hero = ({ isMobile }) => {
     return (
         <div className={styles.hero}>
             <div className={styles.content}>
@@ -14,9 +14,7 @@ const Hero = () => {
                     </ul>
                 </div>
                 <div style={{ marginTop: "-20px"}}>
-                    <Link href="/inventory">
-                        <button className={styles.ctaButton}>VIEW INVENTORY</button>
-                    </Link>
+                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position="center" style={{ margin: '20px' }}/>
                 </div>
             </div>
         </div>
