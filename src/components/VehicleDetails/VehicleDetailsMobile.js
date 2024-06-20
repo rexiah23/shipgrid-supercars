@@ -128,7 +128,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
   };
 
     const overviewContent = (
-      <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginLeft: -10 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginLeft: -10, }}>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px'}}>
                   <Box sx={{
@@ -412,19 +412,19 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
           View tabs for full pricing breakdown
       </Typography>
-      <BookCallCTA text='GET IT NOW' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '27px', width: '100%'}}/>
+      <BookCallCTA text='GET IT NOW' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '24px', marginLeft: '15px', width: '100%'}}/>
       </div>
       
       <div style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Details" style={{ maxWidth: 5, minHeight: 40, marginLeft: -15 }} />
-            <Tab label="Cash" style={{ maxWidth: 5, minHeight: 40, marginLeft: -15 }} /> 
+            <Tab label="Details" style={{ marginLeft: -15 }} />
+            <Tab label="Cash" style={{ marginLeft: -15 }} /> 
             <Tab 
               icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 15 }} />} 
-              style={{ maxWidth: 5, minHeight: 40 }}
+              style={{ minWidth: '50px' }}
             />
-            <Tab label="Letter of Credit" style={{ maxWidth: 5, minHeight: 40 }} />
+            <Tab label="Letter of Credit" style={{ minWidth: '50px' }} />
           </Tabs>
             {tabPanels[value]}
         </div>

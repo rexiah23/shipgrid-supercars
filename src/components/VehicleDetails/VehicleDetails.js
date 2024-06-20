@@ -66,7 +66,7 @@ const DetailTabs = ({ vehicle, width }) => {
                         </Typography>
                     ) : (
                         <Typography component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
-                           No Accidents! - (View Report)
+                        No Accidents! - (View Report)
                         </Typography>
                     )
                 ) : (
@@ -139,7 +139,7 @@ const DetailTabs = ({ vehicle, width }) => {
     const totalAmountLetterOfCredit = letterOfCreditLineItems.reduce((acc, item) => acc + item.amount, 0);
 
     const cashContent = (
-        <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
+        <>
             {cashLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight, item.isDiscount))}
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
@@ -147,11 +147,11 @@ const DetailTabs = ({ vehicle, width }) => {
                     <span>CAD {formatCurrency(totalAmountCash)}</span>
                 </Typography>
             </Box>
-        </Box>
+        </>
     );
 
     const escrowContent = (
-        <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
+        <>
             {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
@@ -159,11 +159,11 @@ const DetailTabs = ({ vehicle, width }) => {
                     <span>CAD {formatCurrency(totalAmountEscrow)}</span>
                 </Typography>
             </Box>
-        </Box>
+        </>
     );
 
     const letterOfCreditContent = (
-        <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
+        <>
             {letterOfCreditLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
@@ -171,7 +171,7 @@ const DetailTabs = ({ vehicle, width }) => {
                     <span>CAD {formatCurrency(totalAmountLetterOfCredit)}</span>
                 </Typography>
             </Box>
-        </Box>
+        </>
     );
 
     const tabPanels = {
@@ -193,7 +193,9 @@ const DetailTabs = ({ vehicle, width }) => {
                 <Tab label="Letter of Credit"/>
             </Tabs>
             <Box sx={{ p: 2, flex: 1 }}>
-                {tabPanels[value]}
+                <Box sx={{ p: 2, marginLeft: '-15px', marginTop: '-5px' }}>
+                    {tabPanels[value]}
+                </Box>
             </Box>
         </Box>
     );
@@ -329,11 +331,11 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                 />
             }
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Box sx={{ width: '100%', maxWidth: '600px', padding: '0 20px 20px 0'}}>
+                <Box sx={{ width: '100%', minWidth: '600px', padding: '0 20px 20px 0', flex: 1}}>
                     <MainImage src={selectedImage} alt={`${vehicle.make} ${vehicle.model}`} onOpen={handleOpenOverlay} />
                     <SmallImageDisplay vehicle={vehicle} selectedImage={selectedImage} onSelectImage={setSelectedImage} />
                 </Box>
-                <Box sx={{ padding: '0 20px 20px 0'}}>
+                <Box sx={{ padding: '0 20px 20px 0', maxWidth: '600px', flex: 1}}>
                     <Typography variant="h5" sx={{ mb: 2 }}>
                         <span style={{ fontWeight: 'bold' }}>
                             {vehicle.year} {vehicle.make} {vehicle.model}
@@ -346,8 +348,7 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                     <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
                         View tabs for full pricing breakdown
                     </Typography>
-                    <BookCallCTA text='GET IT NOW' style={{ marginTop: '16px', border: 'none', boxShadow: 'none'}}/>
-
+                    <BookCallCTA text='GET IT NOW' style={{ marginTop: '16px', border: 'none', width: '100%', boxShadow: 'none'}} position="flex-start"/>
                     <DetailTabs vehicle={vehicle}/>
                 </Box>
             </Box>
