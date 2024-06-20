@@ -10,7 +10,7 @@
   .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Adjust as needed to control spacing between logo and HOME link */
+    margin-right: 40px; /* Adjust as needed to control spacing between logo and HOME link */
     margin-left: 20px;
   }
   

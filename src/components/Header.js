@@ -93,7 +93,7 @@ const HeaderDesktop = () => {
       </div>
 
       <header style={{ display: 'flex', width: '40%', color: 'white', justifyContent: 'space-between', padding: '18px 0', paddingBottom: '18px' }}>
-        <div className={'logo'}>
+        <div className={'logo'} style={{ marginRight: '40px'}}>
           <Link href="/">
             <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} />
           </Link>

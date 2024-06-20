@@ -13,7 +13,7 @@ const Hero = () => {
                         <li>Inspect With Your Mechanic Before Paying</li>
                     </ul>
                 </div>
-                <div>
+                <div style={{ marginTop: "-20px"}}>
                     <Link href="/inventory">
                         <button className={styles.ctaButton}>VIEW INVENTORY</button>
                     </Link>
@@ -23,7 +23,4 @@ const Hero = () => {
     );
 };
 
-
 export default Hero;
-
-
