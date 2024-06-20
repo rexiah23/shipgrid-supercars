@@ -280,17 +280,17 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       return `$${amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     };
 
-    const createLineItem = (name, amount, isHighlight = false, isDiscount = false) => (
+    const createLineItem = (name, amount, isHighlight = false, isDiscount = false, bolded = false) => (
         <Box sx={{
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center', 
             my: 0.5,
             bgcolor: isHighlight ? '#f0f0f0' : 'transparent',
-            color: isDiscount ? 'green' : 'inherit'
+            color: isDiscount ? 'green' : 'inherit',
         }}>
-            <Typography variant="body2">{name}:</Typography>
-            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>{formatCurrency(amount)}</Typography>
+            <Typography  sx={{ fontSize: '1.2em',  fontWeight: bolded ? 'bold' : 'normal' }}>{name}:</Typography>
+            <Typography sx={{ fontWeight: 'bold', fontSize: '1.2em' }}>{formatCurrency(amount)}</Typography>
         </Box>
     );
 
@@ -312,79 +312,50 @@ const VehicleDetailsMobile = ({ vehicle }) => {
   // Calculate total amount for cash
   const totalAmountCash = cashLineItems.reduce((acc, item) => acc + item.amount, 0);
 
+  const totalCashItems = [{
+    name: "Custom Cleared & Landed", amount: totalAmountCash, bolded: true
+  }]
+
   // Escrow-specific line items (no cash discount)
   const escrowLineItems = [...commonLineItems];
 
   // Calculate total amount for escrow
   const totalAmountEscrow = escrowLineItems.reduce((acc, item) => acc + item.amount, 0);
 
+  const totalEscrowItems = [{
+    name: "Custom Cleared & Landed", amount: totalAmountEscrow, bolded: true
+  }]
   // Escrow-specific line items (no cash discount)
   const letterOfCreditLineItems = [...commonLineItems];
 
   // Calculate total amount for letter of credit
   const totalAmountLetterOfCredit = letterOfCreditLineItems.reduce((acc, item) => acc + item.amount, 0);
 
+  const totalLetterOfCreditItems = [{
+    name: "Custom Cleared & Landed", amount: totalAmountLetterOfCredit, bolded: true
+  }]
+
   const cashContent = (
       <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
           {cashLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight, item.isDiscount))}
-          <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-          <Typography 
-                sx={{ 
-                  fontWeight: 'bold', 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center', 
-                  padding: '10px', // Padding around the component
-                  borderRadius: '4px' // Optional: for rounded corners
-                }}
-              >
-                <span style={{ fontSize: '0.9em', textAlign: 'center' }}>Fully Cleared & Landed: </span>
-                <span>CAD {formatCurrency(totalAmountCash)}</span>
-              </Typography>
-          </Box>
+          <hr/>
+          {totalCashItems.map((item, index) => createLineItem(item.name, item.amount, false, false, item.bolded))}
       </Box>
   );
 
   const escrowContent = (
       <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
           {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
-          <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-              <Typography 
-                sx={{ 
-                  fontWeight: 'bold', 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center', 
-                  padding: '10px', // Padding around the component
-                  borderRadius: '4px' // Optional: for rounded corners
-                }}
-              >
-                <span style={{ fontSize: '0.9em', textAlign: 'center' }}>Fully Cleared & Landed: </span>
-                <span>CAD {formatCurrency(totalAmountEscrow)}</span>
-              </Typography>
-
-          </Box>
+          <hr/>
+          {totalEscrowItems.map((item, index) => createLineItem(item.name, item.amount, false, false, item.bolded))}
       </Box>
   );
 
   const letterOfCreditContent = (
       <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2 }}>
           {letterOfCreditLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
-          <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-              <Typography 
-                sx={{ 
-                  fontWeight: 'bold', 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center', 
-                  padding: '10px', // Padding around the component
-                  borderRadius: '4px' // Optional: for rounded corners
-                }}
-              >
-                <span style={{ fontSize: '0.9em', textAlign: 'center' }}>Fully Cleared & Landed: </span>
-                <span>CAD {formatCurrency(totalAmountLetterOfCredit)}</span>
-              </Typography>
-          </Box>
+          <hr/>
+          {totalLetterOfCreditItems.map((item, index) => createLineItem(item.name, item.amount, false, false, item.bolded))}
       </Box>
   );
 
@@ -428,9 +399,9 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       
       <div style={{ display: 'flex', flexDirection: 'column'}}>
         <Typography variant="h6">
-          ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>CAD</Typography>
+          ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
       </Typography>
-      <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
+      <Typography sx={{ color: 'text.secondary', mt: 0 }}>
           View tabs for full pricing breakdown
       </Typography>
       <BookCallCTA text='START PURCHASE' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '24px', marginLeft: '15px', width: '100%'}}/>
@@ -439,13 +410,13 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       <div style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Details" style={{ marginLeft: -15 }} />
-            <Tab label="Cash" style={{ marginLeft: -15 }} /> 
+            <Tab label="Details" style={{ fontSize: '1.1em', marginLeft: -15 }} />
+            <Tab label="Cash" style={{ fontSize: '1.1em', marginLeft: -15 }} /> 
             <Tab 
               icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 15 }} />} 
               style={{ minWidth: '50px' }}
             />
-            <Tab label="Letter of Credit" style={{ maxWidth: '200px', fontSize: '0.8em' }} />
+            <Tab label="Letter of Credit" style={{ fontSize: '1.3em', maxWidth: '200px' }} />
           </Tabs>
             {tabPanels[value]}
         </div>

@@ -32,55 +32,55 @@ const DetailTabs = ({ vehicle, width }) => {
     };
 
     const overviewContent = (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <SpeedIcon sx={{ marginRight: 1 }} />
-                <Typography>{formatNumberWithCommas(vehicle.kms)} km</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{formatNumberWithCommas(vehicle.kms)} km</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <DirectionsCarIcon sx={{ marginRight: 1 }} />
-                <Typography>{vehicle.bodyStyle}</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.bodyStyle}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <PaletteIcon sx={{ marginRight: 1 }} />
-                <Typography>{vehicle.exteriorColor} / {vehicle.interiorColor}</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.exteriorColor} / {vehicle.interiorColor}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <BuildIcon sx={{ marginRight: 1 }} />
-                <Typography>{vehicle.transmission} · {vehicle.drivetrain} · {vehicle.engine}</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.transmission} · {vehicle.drivetrain} · {vehicle.engine}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <LocalGasStationIcon sx={{ marginRight: 1 }} />
-                <Typography>{vehicle.fuelType}</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.fuelType}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <PeopleIcon sx={{ marginRight: 1 }} />
-                <Typography>{vehicle.numberOfOwners} previous owners</Typography>
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.numberOfOwners} previous owners</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <ReportIcon sx={{ marginRight: 1 }} />
                 {vehicle.insuranceHistoryPdf ? (
                     vehicle.accidentHistory ? (
-                        <Typography component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
+                        <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
                             View Accident Report
                         </Typography>
                     ) : (
-                        <Typography component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
+                        <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
                         No Accidents! - (View Report)
                         </Typography>
                     )
                 ) : (
-                    <Typography>N/A</Typography>
+                    <Typography style={{ fontSize: '1.3em'}}>N/A</Typography>
                 )}
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <AssessmentIcon sx={{ marginRight: 1 }} />  
                 {vehicle.conditionReportPdf ? (
-                    <Typography component="a" href="#" onClick={() => openPdf(vehicle.conditionReportPdf)} sx={{ cursor: 'pointer' }}>
+                    <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.conditionReportPdf)} sx={{ cursor: 'pointer' }}>
                         View Condition Report
                     </Typography>
                 ) : (
-                    <Typography>N/A</Typography>
+                    <Typography style={{ fontSize: '1.3em'}}>N/A</Typography>
                 )}
             </Box>
         </Box>
@@ -103,8 +103,8 @@ const DetailTabs = ({ vehicle, width }) => {
             bgcolor: isHighlight ? '#f0f0f0' : 'transparent',
             color: isDiscount ? 'green' : 'inherit'
         }}>
-            <Typography variant="body2">{name}:</Typography>
-            <Typography variant="body2" sx={{ fontWeight: 'bold' }}>{formatCurrency(amount)}</Typography>
+            <Typography sx={{ fontSize: '1.3em' }}>{name}:</Typography>
+            <Typography sx={{ fontWeight: 'bold', fontSize: '1.3em' }}>{formatCurrency(amount)}</Typography>
         </Box>
     );
 
@@ -141,9 +141,10 @@ const DetailTabs = ({ vehicle, width }) => {
     const cashContent = (
         <>
             {cashLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight, item.isDiscount))}
+            <hr/>
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Fully Cleared and Ready to drive price: </span>
+                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em' }}>
+                    <span>Custom Cleared & Landed: </span>
                     <span>CAD {formatCurrency(totalAmountCash)}</span>
                 </Typography>
             </Box>
@@ -153,9 +154,10 @@ const DetailTabs = ({ vehicle, width }) => {
     const escrowContent = (
         <>
             {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
+            <hr/>
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Total</span>
+                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em'  }}>
+                    <span>Custom Cleared & Landed:</span>
                     <span>CAD {formatCurrency(totalAmountEscrow)}</span>
                 </Typography>
             </Box>
@@ -165,9 +167,10 @@ const DetailTabs = ({ vehicle, width }) => {
     const letterOfCreditContent = (
         <>
             {letterOfCreditLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
+            <hr/>
             <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between' }}>
-                    <span>Total</span>
+                <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em'  }}>
+                    <span>Custom Cleared & Landed:</span>
                     <span>CAD {formatCurrency(totalAmountLetterOfCredit)}</span>
                 </Typography>
             </Box>
@@ -184,13 +187,13 @@ const DetailTabs = ({ vehicle, width }) => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Tabs sx={{flex: 1}} value={value} onChange={handleChange} aria-label="vehicle details tabs">
-                <Tab label="Details"/>
-                <Tab label="Cash" />
-                <Tab 
+                <Tab sx={{ fontSize: '1.3em'}} label="Details"/>
+                <Tab sx={{ fontSize: '1.3em'}} label="Cash" />
+                <Tab sx={{ fontSize: '1.3em'}} 
                     icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 24, verticalAlign: 'middle', transform: 'translateY(50%)' }} />} 
                     label={<span style={{ textTransform: 'none', color: 'transparent' }}>Escrow</span>} // Hide label visually but keep for accessibility
                 />
-                <Tab label="Letter of Credit"/>
+                <Tab sx={{ fontSize: '1.3em'}} label="Letter of Credit"/>
             </Tabs>
             <Box sx={{ p: 2, flex: 1 }}>
                 <Box sx={{ p: 2, marginLeft: '-15px', marginTop: '-5px' }}>
@@ -343,9 +346,9 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                         <span> {vehicle.trim}</span>
                     </Typography>
                     <Typography variant="h6">
-                        ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>CAD</Typography>
+                        ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
                     </Typography>
-                    <Typography sx={{ fontSize: '0.75rem', color: 'text.secondary', mt: 0 }}>
+                    <Typography sx={{ color: 'text.secondary', mt: 0 }}>
                         View tabs for full pricing breakdown
                     </Typography>
                     <BookCallCTA text='START PURCHASE' style={{ marginTop: '16px', border: 'none', width: '100%', boxShadow: 'none'}} position="flex-start"/>
