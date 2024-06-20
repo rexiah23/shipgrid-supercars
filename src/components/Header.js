@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import AccessTimeIcon from '@mui/icons-material/AccessTime' 
 import EmailIcon from '@mui/icons-material/Email'           
 import PhoneIcon from '@mui/icons-material/Phone'      
+import Hero from './Hero'
 
 const HeaderMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,8 +71,7 @@ const HeaderMobile = () => {
 const HeaderDesktop = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'black' }}> 
-
-      <div style={{ display: 'flex', color: 'white', width: '50%', justifyContent: 'space-between', padding: '18px 0' }}> 
+      <div style={{ display: 'flex', color: 'white', width: '40%', justifyContent: 'space-between', padding: '18px 0' }}> 
 
         <div style={{ fontWeight: 'bold', color: 'white', textDecoration: 'none' }}>
           <AccessTimeIcon style={{ fontSize: '1rem', verticalAlign: 'middle', marginRight: '5px' }} />
@@ -92,7 +92,7 @@ const HeaderDesktop = () => {
 
       </div>
 
-      <header style={{ display: 'flex', width: '50%', color: 'white', justifyContent: 'space-between', padding: '18px 0', paddingBottom: '18px' }}>
+      <header style={{ display: 'flex', width: '40%', color: 'white', justifyContent: 'space-between', padding: '18px 0', paddingBottom: '18px' }}>
         <div className={'logo'}>
           <Link href="/">
             <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} />

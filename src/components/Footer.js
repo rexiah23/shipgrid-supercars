@@ -53,7 +53,7 @@ const FooterMobile = () => {
 const FooterDesktop = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1f1f1f', color: 'white', paddingTop: '18px' }}>
-      <footer style={{ display: 'flex', flexDirection: 'column', width: '50%', alignItems: 'space-between' }}>
+      <footer style={{ display: 'flex', flexDirection: 'column', width: '40%', alignItems: 'space-between' }}>
         <div>
           <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} /> 
         </div>
