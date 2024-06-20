@@ -402,7 +402,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
           ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
       </Typography>
       <Typography sx={{ color: 'text.secondary', mt: 0 }}>
-          View tabs for full pricing breakdown
+          View tabs for full pricing
       </Typography>
       <BookCallCTA text='START PURCHASE' position='center' size="sm" style={{ marginTop: '16px', border: 'none', boxShadow: 'none', marginRight: '24px', marginLeft: '15px', width: '100%'}}/>
       </div>
@@ -413,10 +413,10 @@ const VehicleDetailsMobile = ({ vehicle }) => {
             <Tab label="Details" style={{ fontSize: '1.1em', marginLeft: -15 }} />
             <Tab label="Cash" style={{ fontSize: '1.1em', marginLeft: -15 }} /> 
             <Tab 
-              icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 15 }} />} 
+              icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 20 }} />} 
               style={{ minWidth: '50px' }}
             />
-            <Tab label="Letter of Credit" style={{ fontSize: '1.3em', maxWidth: '200px' }} />
+            <Tab label="Letter of Credit" style={{ maxWidth: '100px' }} />
           </Tabs>
             {tabPanels[value]}
         </div>
