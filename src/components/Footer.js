@@ -54,12 +54,15 @@ const FooterDesktop = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1f1f1f', color: 'white', paddingTop: '18px' }}>
       <footer style={{ display: 'flex', flexDirection: 'column', width: '40%', alignItems: 'space-between' }}>
-        <div>
-          <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} /> 
-        </div>
-    
+
+
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+
+          <div style={{ display: 'flex', flexDirection: 'column'}}>
+            <div>
+              <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} /> 
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
             <p style={{ marginBottom: '-8px'}}> 
                 <PhoneIcon style={{ verticalAlign: 'middle', marginRight: '8px' }} />
                 <a href="tel:+16476777891" className={styles.contactLink}>647-677-7891</a>
@@ -70,8 +73,10 @@ const FooterDesktop = () => {
             </p>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
-            <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column'}}>
+          </div>
+
+          <div style={{ display: 'flex' }}>
+            <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column', marginRight: '125px'}}>
               <h3>Company</h3>
               <a href="/about">About Us</a>
               <a href="/contact">Contact Us</a>

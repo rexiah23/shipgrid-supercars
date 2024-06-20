@@ -19,9 +19,9 @@ export default function Home() {
           <Hero isMobile={isMobile}/>
           {!isMobile && <FeatureBlocks />}
           <VehicleGrid vehicles={vehicles} isMobile={isMobile}/>
-          <ShippingMap />
-          <FAQ showTitle={true} displayLeft={true}/>
+          {/* <ShippingMap /> */}
           <ReadyToCall />
+          <FAQ showTitle={true} displayLeft={true}/>
           {/* <ContactForm /> */}
       </main>
   );
