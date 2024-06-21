@@ -45,7 +45,7 @@
   margin: 10px;
   text-decoration: none;
   color: inherit;
-  width: 300px; /* Adjust width as needed */
+  width: 350px; /* Adjust width as needed */
   min-width: 250px; /* Ensuring a minimum width */
   overflow: hidden; /* Adds overflow handling */
 }

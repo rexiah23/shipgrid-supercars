@@ -7,9 +7,9 @@ const Steps = ({ steps }) => {
         <div key={step.number} className={styles.step}>
           <div className={styles.header}>
             <div className={styles.number}>{step.number}</div>
-            <h3>{step.title}</h3>
+            <h3 className={styles.h3}>{step.title}</h3>
           </div>
-          <p>{step.description}</p>
+          <p className={styles.p}>{step.description}</p>
         </div>
       ))}
     </div>

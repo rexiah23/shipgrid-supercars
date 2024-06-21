@@ -1,23 +1,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'; // Import useRouter for navigation
-import SpeedIcon from '@mui/icons-material/Speed';        // For kilometers
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';// For seats
-import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';  // For fuel usage
-import PeopleIcon from '@mui/icons-material/People'; // Icon for number of owners
-import ReportIcon from '@mui/icons-material/Report';      // For accidents
-import { Tabs, Tab, Box, Typography, Grid, Card, CardMedia, Button } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTachometerAlt, faCar, faGasPump, faWrench, faExclamationTriangle, faCheckCircle, faPalette, faCogs, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { Tabs, Tab, Box, Typography, Card, CardMedia } from '@mui/material';
 import Image from 'next/image'; // If you are using Next.js
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import PaletteIcon from '@mui/icons-material/Palette'; // Icon for exterior and interior colors
-import BuildIcon from '@mui/icons-material/Build'; // Icon for transmission, drivetrain, and engine
-import AssessmentIcon from '@mui/icons-material/Assessment';
 import Modal from '@mui/material/Modal';
 import "./VehicleDetails.module.css";
 import BookCallCTA from '../BookCallCTA';
-import useMediaQuery from '@mui/material/useMediaQuery'    
+import useMediaQuery from '@mui/material/useMediaQuery';
 import VehicleDetailsMobile from './VehicleDetailsMobile';
 
 function formatNumberWithCommas(number) {
@@ -34,31 +28,31 @@ const DetailTabs = ({ vehicle, width }) => {
     const overviewContent = (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <SpeedIcon sx={{ marginRight: 1 }} />
+                <FontAwesomeIcon icon={faTachometerAlt} style={{ marginRight: 8, fontSize: '1.3em' }} />
                 <Typography style={{ fontSize: '1.3em'}}>{formatNumberWithCommas(vehicle.kms)} km</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <DirectionsCarIcon sx={{ marginRight: 1 }} />
+                <FontAwesomeIcon icon={faCar} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 <Typography style={{ fontSize: '1.3em'}}>{vehicle.bodyStyle}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <PaletteIcon sx={{ marginRight: 1 }} />
+                <FontAwesomeIcon icon={faPalette} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 <Typography style={{ fontSize: '1.3em'}}>{vehicle.exteriorColor} / {vehicle.interiorColor}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <BuildIcon sx={{ marginRight: 1 }} />
-                <Typography style={{ fontSize: '1.3em'}}>{vehicle.transmission} · {vehicle.drivetrain} · {vehicle.engine}</Typography>
+                <FontAwesomeIcon icon={faCogs} style={{ marginRight: 8,  fontSize: '1.3em' }} />
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.transmission} · {vehicle.drivetrain} </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <LocalGasStationIcon sx={{ marginRight: 1 }} />
+                <FontAwesomeIcon icon={faGasPump} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 <Typography style={{ fontSize: '1.3em'}}>{vehicle.fuelType}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <PeopleIcon sx={{ marginRight: 1 }} />
-                <Typography style={{ fontSize: '1.3em'}}>{vehicle.numberOfOwners} previous owners</Typography>
+                <FontAwesomeIcon icon={faWrench} style={{ marginRight: 8,  fontSize: '1.3em' }} />
+                <Typography style={{ fontSize: '1.3em'}}>{vehicle.engine}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <ReportIcon sx={{ marginRight: 1 }} />
+                <FontAwesomeIcon icon={vehicle.accidentHistory ? faExclamationTriangle : faCheckCircle} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 {vehicle.insuranceHistoryPdf ? (
                     vehicle.accidentHistory ? (
                         <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
@@ -66,7 +60,7 @@ const DetailTabs = ({ vehicle, width }) => {
                         </Typography>
                     ) : (
                         <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.insuranceHistoryPdf)} sx={{ cursor: 'pointer' }}>
-                        No Accidents! - (View Report)
+                            No Accidents!
                         </Typography>
                     )
                 ) : (
@@ -74,7 +68,7 @@ const DetailTabs = ({ vehicle, width }) => {
                 )}
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
-                <AssessmentIcon sx={{ marginRight: 1 }} />  
+                <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 {vehicle.conditionReportPdf ? (
                     <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.conditionReportPdf)} sx={{ cursor: 'pointer' }}>
                         View Condition Report
@@ -223,7 +217,7 @@ const SmallImageDisplay = ({ vehicle, selectedImage, onSelectImage }) => {
             {vehicle.gallery.map((img, index) => (
                 <Card
                     key={index}
-                    sx={{ width: '20%', cursor: 'pointer', border: selectedImage === img ? '2px solid orange' : 'none' }}
+                    sx={{ width: '15%', cursor: 'pointer', border: selectedImage === img ? '2px solid orange' : 'none' }}
                     onClick={() => onSelectImage(img)}
                 >
                     <CardMedia

@@ -21,7 +21,7 @@ const Inventory = () => {
 
     return (
         <div className={styles.container}>
-          <p className={styles.matchingCount}>{filteredVehicles.length} Vehicles Matching</p>
+          <p className={styles.matchingCount}>{filteredVehicles.length} Vehicle(s) Matching</p>
           <SearchFilter
             brands={brands}
             selectedBrand={selectedBrand}

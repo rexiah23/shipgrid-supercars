@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styles from './Inventory.module.css';
 import { Typography, Grid, Box } from '@mui/material';
-import SpeedIcon from '@mui/icons-material/Speed';        // For kilometers
 import BuildIcon from '@mui/icons-material/Build'; // Icon for transmission
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTachometerAlt, faCar, faGasPump, faWrench, faExclamationTriangle, faCheckCircle, faPalette, faCogs, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 function formatNumberWithCommas(number) {
   return number.toLocaleString('en-CA');  // 'en-CA' is the locale for English-speaking Canada
@@ -11,35 +12,51 @@ function formatNumberWithCommas(number) {
 const VehicleCard = ({ vehicle, isMobile }) => {
   return ( 
   <Link key={vehicle.id} className={styles.card} href={`/vehicle/${vehicle.id}`} passHref>
-    <img src={vehicle.image} alt={`${vehicle.make} ${vehicle.model}`} className={styles.image} />
+    <img src={vehicle.gallery[0]} alt={`${vehicle.make} ${vehicle.model}`} className={styles.image} />
     <div className={styles.details}>
     <Typography component="h3" variant="h6" sx={{
       fontWeight: 'bold',
+      textAlign: 'center', // center all the text
       display: 'block', // ensure it respects container width
-      whiteSpace: 'nowrap', // keep all text in a single line
       overflow: 'hidden', // hide overflow
       textOverflow: 'ellipsis', // use ellipsis for text that overflows
       maxWidth: '100%', // ensure it does not exceed its container
+      fontSize: '1.4em',
+      marginBottom: '12px'
   }}>
-      {vehicle.year} {vehicle.make} {vehicle.model} {vehicle.trim}
+    <div>
+        {vehicle.year} {vehicle.make} {vehicle.model}
+    </div>
+    <div>
+        <Typography component="span" sx={{ fontWeight: 'normal', fontSize: '1.05em', textDecoration: 'underline' }}>
+            {vehicle.trim}
+        </Typography>
+    </div>
     </Typography>
+
       <Grid container spacing={2} alignItems="center"> {/* Increased spacing for better layout */}
         <Grid item xs={6} display="flex" alignItems="center" sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            <SpeedIcon sx={{ marginRight: 1 }} />
-            <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-                {formatNumberWithCommas(vehicle.kms)} km
-            </Typography>
+          <FontAwesomeIcon icon={faTachometerAlt} style={{ marginRight: 8, fontSize: '1.3em' }} />
+          <Typography style={{ fontSize: '1.15em'}}>{formatNumberWithCommas(vehicle.kms)} km</Typography>
         </Grid>
         <Grid item xs={6} display="flex" alignItems="center" sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            <BuildIcon sx={{ marginRight: 1 }} />
-            <Typography variant="body2" sx={{ whiteSpace: 'nowrap' }}>
-                {vehicle.transmission}
-            </Typography>
+          <FontAwesomeIcon icon={faCogs} style={{ marginRight: 8,  fontSize: '1.3em' }} />
+          <Typography style={{ fontSize: '1.15em'}}>{vehicle.transmission} </Typography>
         </Grid>
       </Grid>
-      <Typography variant="h6">
-        ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>CAD</Typography>
+      <Typography
+        sx={{
+            fontSize: '1.3em',
+            marginTop: '12px',
+            backgroundColor: 'green',
+            color: 'white', // Optional: Change the text color to ensure it's readable
+            padding: '8px', // Optional: Add some padding for better appearance
+            borderRadius: '4px' // Optional: Add rounded corners
+        }}
+      >
+        CAD ${formatNumberWithCommas(vehicle.price)}
       </Typography>
+
     </div>
   </Link>
   )

@@ -3,30 +3,30 @@ import styles from './FAQ.module.css'; // Assuming you use CSS Modules
 
 const questionsAnswers = [
     {
-        question: "Why are the prices of the vehicles so low?",
-        answer: "Used vehicles, particularly older supercars, are considered low status in South Korea, resulting in much lower demand compared to the supercar market in Canada. Consequently, these vehicles are priced much lower than the equivalent make and model here in Canada."
+        question: "Why are the vehicle prices so low?",
+        answer: "Used cars, especially older supercars, aren't very popular in South Korea. This makes them much cheaper there compared to similar cars in Canada."
     },
     {
-        question: "Does the low price mean the vehicles are in poor condition?",
-        answer: "Not at all! In South Korea, social status is closely tied to the quality and condition of one's possessions, especially ones car. As a result, you’ll find that vehicles are meticulously maintained and serviced. Additionally, South Korea has stricter emissions and registration requirements than North America, and roads are not salted during winters, preventing salt-related damage such as rust."
+        question: "Does the low price mean they're in poor condition?",
+        answer: "Not at all. In South Korea, social status is closely tied to the quality and condition of one's possessions, especially one's car. As a result, you’ll find vehicles that are meticulously maintained and serviced. Additionally, South Korea has stricter emissions and registration requirements than North America, and roads are not salted during winters, preventing salt-related damage such as rust."
+    },
+    {
+        question: "Can my mechanic inspect the vehicle before I pay?",
+        answer: "Yes. We allow a 24-hour inspection period for you or your mechanic to inspect and drive the vehicle once it lands in Vancouver. You can then decide to approve or reject the vehicle after the inspection."
     },
     {
         question: "How can I be confident in the condition of the vehicle?",
-        answer: "All vehicles will come with a complete insurance claims history (accident, flooding history, theft history, total loss history, rental car history), number of owners the vehicle had. If there are any claims, each claim will explicitly outline how much the insurance claim was in parts and labour, and whether the accident was caused by the buyer or the seller. All reports are provided by the federal South Korean government, so they are completely legitimate and cannot be falsified. We can also complete an optional pre-purchase inspection at the official manufacture dealership in Seoul, where you will get a complete report of the vehicle's condition. (Lamborghini Seoul, Ferrari Seoul, BMW Seoul, etc)."
+        answer: "You'll get a complete insurance history report, including accidents, flooding, theft, total loss, rental history, and the number of owners. These reports are from the South Korean government and can't be falsified. We can also do a pre-purchase inspection at the manufacturer's dealership in Seoul. Additionally, we will send you a detailed, in-person videos of the vehicle."
     },
     {
-        question: "Can me or my mechanic inspect the vehicle before I pay?",
-        answer: "Yes! We allow a 24 hr inspection period for you or your mechanic to inspect and drive the vehicle once it lands in Vancouver. You can either decide to approve or reject the vehicle after the inspection."
-    },
-    {
-        question: "What is included in the 'Cleared Customs' Price?",
+        question: "What is included in the 'Cleared Customs & Landed' Price?",
         answer: "This includes the price of the vehicle, shipping, and complete customs clearance and arrival into the port in Vancouver BC. All you will need to do is take it to your local DMV and register the vehicle."
     },
     {
         question: "Do I have to pay any additional taxes when I register the vehicle?",
         answer: (
             <p>
-                As we will pay the duties and GST during customs clearance into Canada, you will be responsible for just PST depending on the province/territory you register your vehicle in:
+                As we will pay the duties and GST during customs clearance, you'll be responsible for just PST depending on the province/territory you register your vehicle in:
                 <ul>
                     <li>Alberta: No additional taxes</li>
                     <li>Ontario: 8% PST</li>
@@ -55,7 +55,7 @@ const questionsAnswers = [
     },
     {
         question: "How does Escrow make my purchase risk free?",
-        answer: "Escrow makes your purchase risk-free by holding your funds with a trusted third party until you inspect the vehicle in Vancouver and confirm it meets your expectations. Additionally, if we fail to meet any commitments outlined in the Escrow agreement, the escrow service will fully refund your money."
+        answer: "Escrow makes your purchase risk-free by holding your funds with a trusted third party until you inspect the vehicle in Vancouver and confirm it meets your expectations. Additionally, if we fail to meet any commitments outlined in the Escrow agreement, the escrow service will refund your money minus shipping and custom clearance fees."
     },
     {
         question: "What is Escrow.com?",
@@ -74,8 +74,8 @@ const questionsAnswers = [
         answer: "There is minimal risk. South Korea is known for well-maintained vehicles due to cultural emphasis on taking care of possessions. Additionally, roads in South Korea are not salted, reducing the risk of rust."
     },
     {
-        question: "Are the vehicles accident-free?",
-        answer: "We provide full accident histories for our vehicles, ensuring you have access to complete and official records from the South Korean government."
+    question: "Are the vehicles accident-free?",
+    answer: "We provide full accident history reports for our vehicles, giving you complete transparency on the vehicle's accident history."
     },
     {
         question: "How do I register an imported vehicle from South Korea?",

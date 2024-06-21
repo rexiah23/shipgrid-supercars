@@ -24,15 +24,17 @@ const FooterMobile = () => {
         <div className={styles.linksArea} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div className={styles.linkSection}>
             <h3>Company</h3>
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact Us</a>
+            {/* <a href="/about">About Us</a> */}
+            {/* <a href="/contact">Contact Us</a> */}
             <a href="/faq">FAQ</a>
+            <a href="/terms-and-conditions">Terms & Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
           </div>
-          <div className={styles.linkSection}>
+          {/* <div className={styles.linkSection}>
             <h3>Customer Service</h3>
             <a href="/track">Track My Vehicle</a>
             <a href="/contact">Contact</a>
-          </div>
+          </div> */}
         </div>
         <div className={styles.ctaSection}>
           <BookCallCTA style={{ width:'300px', fontSize: '0.9rem'}}/>
@@ -77,16 +79,18 @@ const FooterDesktop = () => {
 
           <div style={{ display: 'flex', marginLeft: '125px' }}>
             <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column', marginRight: '125px'}}>
-              <h3>Company</h3>
-              <a href="/about">About Us</a>
-              <a href="/contact">Contact Us</a>
-              <a href="/faq">FAQ</a>
+            <h3>Company</h3>
+              {/* <a href="/about">About Us</a> */}
+            {/* <a href="/contact">Contact Us</a> */}
+            <a href="/faq">FAQ</a>
+            <a href="/terms-and-conditions">Terms & Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
             </div>
-            <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column'}}>
+            {/* <div className={styles.linkSection} style={{ display: 'flex', flexDirection: 'column'}}>
               <h3>Customer Service</h3>
               <a href="/track">Track My Vehicle</a>
               <a href="/contact">Contact</a>
-            </div>
+            </div> */}
           </div>
         </div>
 
