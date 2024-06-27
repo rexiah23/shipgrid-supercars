@@ -17,7 +17,7 @@ export default function Home() {
   return (
       <main>
           <Hero isMobile={isMobile}/>
-          {!isMobile && <FeatureBlocks />}
+          {/* {!isMobile && <FeatureBlocks />} */}
           <VehicleGrid vehicles={vehicles} isMobile={isMobile}/>
           {/* <ShippingMap /> */}
           <ReadyToCall />
