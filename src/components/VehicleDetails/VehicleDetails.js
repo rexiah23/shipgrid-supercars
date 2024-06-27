@@ -67,7 +67,7 @@ const DetailTabs = ({ vehicle, width }) => {
                     <Typography style={{ fontSize: '1.3em'}}>N/A</Typography>
                 )}
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
+            {/* <Box sx={{ display: 'flex', alignItems: 'center', width: '50%', mb: 2 }}>
                 <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: 8,  fontSize: '1.3em' }} />
                 {vehicle.conditionReportPdf ? (
                     <Typography style={{ fontSize: '1.3em'}} component="a" href="#" onClick={() => openPdf(vehicle.conditionReportPdf)} sx={{ cursor: 'pointer' }}>
@@ -76,7 +76,7 @@ const DetailTabs = ({ vehicle, width }) => {
                 ) : (
                     <Typography style={{ fontSize: '1.3em'}}>N/A</Typography>
                 )}
-            </Box>
+            </Box> */}
         </Box>
     );
 
@@ -105,6 +105,8 @@ const DetailTabs = ({ vehicle, width }) => {
     // Define the common line items for cash and escrow transactions
     const commonLineItems = [
         { name: "List Price", amount: vehicle.price, isHighlight: true },
+        { name: "Manufacturer PPI", amount: vehicle.ppiCost },
+        { name: "Manufacturer PPI Rebate", amount: -vehicle.ppiCost, isDiscount: true },
         { name: "Canada Customs Duty (6.1%)", amount: vehicle.price * 0.061 },
         { name: "Canada Customs GST (5%)", amount: vehicle.price * 0.05 },
         { name: "Ocean Freight To Vancouver YVR (Fully insured)", amount: 7500 },
@@ -136,7 +138,7 @@ const DetailTabs = ({ vehicle, width }) => {
         <>
             {cashLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight, item.isDiscount))}
             <hr/>
-            <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
+            <Box sx={{ mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em' }}>
                     <span>Custom Cleared & Landed: </span>
                     <span>CAD {formatCurrency(totalAmountCash)}</span>
@@ -147,9 +149,9 @@ const DetailTabs = ({ vehicle, width }) => {
 
     const escrowContent = (
         <>
-            {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
+            {escrowLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight, item.isDiscount))}
             <hr/>
-            <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
+            <Box sx={{ mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em'  }}>
                     <span>Custom Cleared & Landed:</span>
                     <span>CAD {formatCurrency(totalAmountEscrow)}</span>
@@ -162,7 +164,7 @@ const DetailTabs = ({ vehicle, width }) => {
         <>
             {letterOfCreditLineItems.map((item, index) => createLineItem(item.name, item.amount, item.isHighlight))}
             <hr/>
-            <Box sx={{ borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
+            <Box sx={{ mt: 1, pt: 1 }}>
                 <Typography sx={{ fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', fontSize: '1.4em'  }}>
                     <span>Custom Cleared & Landed:</span>
                     <span>CAD {formatCurrency(totalAmountLetterOfCredit)}</span>
@@ -175,7 +177,7 @@ const DetailTabs = ({ vehicle, width }) => {
         0: overviewContent,
         1: cashContent,
         2: escrowContent,
-        3: letterOfCreditContent
+        // 3: letterOfCreditContent
     };
 
     return (
@@ -184,10 +186,10 @@ const DetailTabs = ({ vehicle, width }) => {
                 <Tab sx={{ fontSize: '1.3em'}} label="Details"/>
                 <Tab sx={{ fontSize: '1.3em'}} label="Cash" />
                 <Tab sx={{ fontSize: '1.3em'}} 
-                    icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 24, verticalAlign: 'middle', transform: 'translateY(50%)' }} />} 
+                    icon={<img src="/logos/escrowcom.svg" alt="Escrow" style={{ height: 22, verticalAlign: 'middle', transform: 'translateY(65%)' }} />} 
                     label={<span style={{ textTransform: 'none', color: 'transparent' }}>Escrow</span>} // Hide label visually but keep for accessibility
                 />
-                <Tab sx={{ fontSize: '1.3em'}} label="Letter of Credit"/>
+                {/* <Tab sx={{ fontSize: '1.3em', maxWidth: 200 }} label="Letter of Credit"/> */}
             </Tabs>
             <Box sx={{ p: 2, flex: 1 }}>
                 <Box sx={{ p: 2, marginLeft: '-15px', marginTop: '-5px' }}>
@@ -312,6 +314,18 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
         router.push('/inventory'); // Navigate to the inventory page
     };
 
+    const commonLineItems = [
+        { name: "List Price", amount: vehicle.price, isHighlight: true },
+        { name: "Manufacturer PPI", amount: vehicle.ppiCost },
+        { name: "Manufacturer PPI Rebate", amount: -vehicle.ppiCost, isDiscount: true },
+        { name: "Canada Customs Duty (6.1%)", amount: vehicle.price * 0.061 },
+        { name: "Canada Customs GST (5%)", amount: vehicle.price * 0.05 },
+        { name: "Ocean Freight To Vancouver YVR (Fully insured)", amount: 7500 },
+        { name: "Commission", amount: 6000 }
+    ];
+    
+    const totalAmountEscrow = commonLineItems.reduce((acc, item) => acc + item.amount, 0);
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column'}}>
             <IconButton onClick={handleViewAllInventory} sx={{ color: 'inherit', alignSelf: 'flex-start', padding: '0 20px 20px 0' }}>
@@ -340,7 +354,7 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                         <span> {vehicle.trim}</span>
                     </Typography>
                     <Typography variant="h6">
-                        ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
+                        ${formatNumberWithCommas(totalAmountEscrow)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', mt: 0 }}>
                         View tabs for full pricing

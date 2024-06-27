@@ -10,6 +10,19 @@ function formatNumberWithCommas(number) {
 }
 
 const VehicleCard = ({ vehicle, isMobile }) => {
+
+  const commonLineItems = [
+    { name: "List Price", amount: vehicle.price, isHighlight: true },
+    { name: "Manufacturer PPI", amount: vehicle.ppiCost },
+    { name: "Manufacturer PPI Rebate", amount: -vehicle.ppiCost, isDiscount: true },
+    { name: "Canada Customs Duty (6.1%)", amount: vehicle.price * 0.061 },
+    { name: "Canada Customs GST (5%)", amount: vehicle.price * 0.05 },
+    { name: "Ocean Freight To Vancouver YVR (Fully insured)", amount: 7500 },
+    { name: "Commission", amount: 6000 }
+];
+
+const totalAmountEscrow = commonLineItems.reduce((acc, item) => acc + item.amount, 0);
+
   return ( 
   <Link key={vehicle.id} className={styles.card} href={`/vehicle/${vehicle.id}`} passHref>
     <img src={vehicle.gallery[0]} alt={`${vehicle.make} ${vehicle.model}`} className={styles.image} />
@@ -54,7 +67,7 @@ const VehicleCard = ({ vehicle, isMobile }) => {
             borderRadius: '4px' // Optional: Add rounded corners
         }}
       >
-        CAD ${formatNumberWithCommas(vehicle.price)}
+        CAD ${formatNumberWithCommas(totalAmountEscrow)}
       </Typography>
 
     </div>

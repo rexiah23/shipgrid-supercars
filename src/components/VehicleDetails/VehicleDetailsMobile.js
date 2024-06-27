@@ -293,7 +293,6 @@ const VehicleDetailsMobile = ({ vehicle }) => {
     //   3: letterOfCreditContent
   };
 
-
     return (
       <div style={{ display: 'flex', flexDirection: 'column', width: '100%', overflow: 'hidden' }}>
         
@@ -326,7 +325,7 @@ const VehicleDetailsMobile = ({ vehicle }) => {
       
       <div style={{ display: 'flex', flexDirection: 'column'}}>
         <Typography variant="h6">
-          ${formatNumberWithCommas(vehicle.price)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
+          ${formatNumberWithCommas(totalAmountEscrow)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
       </Typography>
       <Typography sx={{ color: 'text.secondary', mt: 0 }}>
           View tabs for full pricing
