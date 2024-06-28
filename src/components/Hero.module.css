@@ -54,7 +54,7 @@
 
 .dynamicWordContainer {
   display: inline-block;
-  width: 8ch;
+  width: 7.5ch;
   text-align: center;
   white-space: nowrap;
 }
@@ -94,6 +94,7 @@
 .ctaButton:hover {
   background-color: #ff5722;
 }
+
 
 @media (max-width: 1024px) {
   .hero {

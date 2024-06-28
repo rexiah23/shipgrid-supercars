@@ -5,7 +5,7 @@ import Steps from './Steps';
 const steps = {
   Cash: [
     { number: 1, title: 'Choose Your Vehicle', description: 'Let us know which vehicle you want.' },
-    { number: 2, title: 'Inspection & Manufacturer PPI', description: 'We\'ll evaluate the vehicle and send you the results. Optionally, we can complete a Pre-Purchase Inspection (PPI) at the manufacturer dealership in Seoul (e.g., Lamborghini Seoul, Ferrari Seoul).' },
+    { number: 2, title: 'Inspection', description: 'We\'ll evaluate the vehicle with our in-house mechanic and send you the results.' },
     { number: 3, title: 'Payment', description: 'If you want to buy the vehicle, wire ShipGrid Solutions the full purchase price.' },
     { number: 4, title: 'We Ship and Clear Your Car', description: 'We\'ll deliver the vehicle to Vancouver, BC (YVR) and handle all customs clearance and paperwork.' },
     { number: 5, title: 'Decide If You Want to Keep the Car', description: 'Inspect the vehicle with your mechanic in Vancouver, BC. Then decide whether to keep or reject it.' },
@@ -14,8 +14,8 @@ const steps = {
   ],
   Escrow: [
     { number: 1, title: 'Choose Your Vehicle', description: 'Let us know which vehicle you want.' },
-    { number: 2, title: 'Inspection & Manufacturer PPI', description: 'We\'ll evaluate the vehicle and send you the results. Optionally, we can complete a Pre-Purchase Inspection (PPI) at the manufacturer dealership in Seoul (e.g., Lamborghini Seoul, Ferrari Seoul).' },
-    { number: 3, title: 'Wire Deposit', description: 'If you want to buy the vehicle, wire ShipGrid Solutions a small deposit to secure it.' },
+    { number: 2, title: 'Inspection', description: 'We\'ll evaluate the vehicle with our in-house mechanic and send you the results.' },
+    { number: 3, title: 'Wire Deposit', description: 'If you want to buy the vehicle, wire Shipgrid Supercar Imports a small deposit to secure it.' },
     { number: 4, title: 'Sign Escrow Agreement', description: 'Sign the Escrow.com agreement and send the remaining funds. Escrow.com will hold your funds until you approve their release.' },
     { number: 5, title: 'We Ship and Clear Your Car', description: 'We deliver the vehicle to Vancouver, BC (YVR) and handle all customs clearance and paperwork.' },
     { number: 6, title: 'Decide If You Want to Keep the Car', description: 'Inspect the vehicle with your mechanic in Vancouver, BC. Then decide whether to keep or reject it.' },

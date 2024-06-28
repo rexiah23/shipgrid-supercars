@@ -4,7 +4,7 @@ import BookCallCTA from './BookCallCTA';
 import ViewInventoryCTA from './ViewInventoryCTA';
 
 const Hero = ({ isMobile }) => {
-    const words = ["Smartest", "Safest", "Cheapest"];
+    const words = ["smartest", "safest", "cheapest"];
     const [currentWord, setCurrentWord] = useState(words[0]);
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const Hero = ({ isMobile }) => {
         const intervalId = setInterval(() => {
             currentIndex = (currentIndex + 1) % words.length;
             setCurrentWord(words[currentIndex]);
-        }, 6000); 
+        }, 5000); 
 
         return () => clearInterval(intervalId);
     }, []);

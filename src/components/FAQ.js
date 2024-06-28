@@ -16,7 +16,7 @@ const questionsAnswers = [
     },
     {
         question: "How can I be confident in the condition of the vehicle?",
-        answer: "You'll get a complete insurance history report, including accidents, flooding, theft, total loss, rental history, and the number of owners. These reports are from the South Korean government and can't be falsified. We can also do a pre-purchase inspection at the manufacturer's dealership in Seoul. Additionally, we will send you a detailed, in-person videos of the vehicle."
+        answer: "You'll get a complete insurance history report, including accidents, flooding, theft, total loss, rental history, and the number of owners. These reports are from the South Korean government and can't be falsified. Additionally, we will send you a detailed, in-person videos of the vehicle."
     },
     {
         question: "What is included in the 'Cleared Customs & Landed' Price?",
@@ -61,10 +61,10 @@ const questionsAnswers = [
         question: "What is Escrow.com?",
         answer: "Escrow.com is the world's leading escrow service for international vehicle sales and is our partnered Escrow service we use for all escrow transactions. They have over 25 years of experience and have an A+ accreditation on the Better Business Bureau (BBB). To learn more about them, please visit: https://www.escrow.com/why-escrowcom/about-us."
     },
-    {
-        question: "Who will cover the cost of the Pre-Purchase Inspection (PPI)?",
-        answer: "The buyer will cover the cost of the PPI, which will be wired directly to the manufacturer dealership performing the PPI in Seoul, such as Lamborghini Seoul or Ferrari Seoul. If you decide to purchase the vehicle, we will deduct the 100% of the PPI cost from the final price."
-    },
+    // {
+    //     question: "Who will cover the cost of the Pre-Purchase Inspection (PPI)?",
+    //     answer: "The buyer will cover the cost of the PPI, which will be wired directly to the manufacturer dealership performing the PPI in Seoul, such as Lamborghini Seoul or Ferrari Seoul. If you decide to purchase the vehicle, we will deduct the 100% of the PPI cost from the final price."
+    // },
     {
         question: "What are the Canadian import laws for South Korean vehicles?",
         answer: "Imported vehicles must be at least 15 years old since the date of manufacture and comply with Canadian emissions and specification requirements. Not to worry, we will handle all the compliance requirements for your vehicle."

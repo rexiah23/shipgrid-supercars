@@ -5,7 +5,7 @@ import styles from './Ready.module.css'; // Assuming you use CSS Modules
 const ReadyToCall = () => {
     return (
         <div className={styles.container}>
-            <h2>READY TO IMPORT YOUR NEXT SUPERCAR FOR 30% OFF?</h2>
+            <h2>READY TO IMPORT YOUR NEXT SUPERCAR?</h2>
             <BookCallCTA position='center'/> 
         </div>
     );
