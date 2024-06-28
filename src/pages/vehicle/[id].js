@@ -3,12 +3,10 @@ import styles from '../../components/VehicleDetails/VehicleDetails.module.css';
 import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
 import { vehicles } from '../../../data/vehicles';
 
-const VehicleDetailsPage = () => {
+const VehicleDetailsPage = ({ vehicle }) => {
     const router = useRouter();
-    const { id } = router.query;
-    const vehicle = vehicles.find(v => v.id === parseInt(id));
 
-    if (!vehicle) {
+    if (router.isFallback) {
         return <div>Loading...</div>;
     }
 
@@ -20,5 +18,29 @@ const VehicleDetailsPage = () => {
         </>
     );
 };
+
+export async function getStaticPaths() {
+    const paths = vehicles.map(vehicle => ({
+        params: { id: vehicle.id.toString() },
+    }));
+
+    return { paths, fallback: true };
+}
+
+export async function getStaticProps({ params }) {
+    const vehicle = vehicles.find(v => v.id === parseInt(params.id, 10));
+
+    if (!vehicle) {
+        return {
+            notFound: true,
+        };
+    }
+
+    return {
+        props: {
+            vehicle,
+        },
+    };
+}
 
 export default VehicleDetailsPage;

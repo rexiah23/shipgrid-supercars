@@ -52,12 +52,12 @@ const HeaderMobile = () => {
       </div>
 
       {isOpen && (
-        <div ref={menuRef} style={{ width: '100%' }}>
+        <div ref={menuRef} style={{ width: '100%' }} onClick={toggleMenu}>
           <nav style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
             <Link className={styles.link} href="/" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>HOME</Link>
             <Link className={styles.link} href="/how-it-works" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>HOW IT WORKS</Link>
             <Link className={styles.link} href="/inventory" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>INVENTORY</Link>
-            <Link className={`${styles.link} ${styles.specialLink}`} href="https://calendly.com/shipgrid/supercar-import-discovery-call" style={{ color: 'white', padding: '10px' }} onClick={closeMenu} target="_blank">START PURCHASE</Link>
+            <Link className={`${styles.link} ${styles.specialLink}`} href="https://calendly.com/shipgrid/supercar-import-discovery-call" style={{ color: 'white', padding: '10px' }} onClick={closeMenu} target="_blank">BOOK A CALL</Link>
             <Link className={styles.link} href="/faq" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>FAQ</Link>
           </nav>
         </div>
@@ -109,7 +109,7 @@ const HeaderDesktop = () => {
             target="_blank" 
             className={`${styles.link} ${styles.specialLink}`} // Use both styles for consistent styling
           >
-            START PURCHASE
+            BOOK A CALL
           </Link>
           <Link href="/faq" className={styles.link}>FAQ</Link>
         </nav>

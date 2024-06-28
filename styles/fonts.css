@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Black-BF65dea4c4a007c.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Light-BF65dea4c59cf23.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-ExtraLight-BF65dea4c5b0dc5.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Regular-BF65dea4c5a77e9.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Medium-BF65dea4c5c6afd.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-BoldItalic-BF65dea4c5ba1ff.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-BlackItalic-BF65dea4c57ce5c.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-MediumItalic-BF65dea4c58477b.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Italic-BF65dea4c5a1363.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-ExtraLightItalic-BF65dea4c5590e1.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-LightItalic-BF65dea4c5893fc.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gramatika';
+  src: url('/fonts/GramatikaTrial-Bold-BF65dea4c5530e5.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Gramatika', sans-serif;
+}

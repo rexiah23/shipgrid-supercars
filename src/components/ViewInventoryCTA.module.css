@@ -1,0 +1,50 @@
+.buttonContainer {
+  display: flex;
+  width: 100%;  /* Make sure container takes full width to allow centering */
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: flex; /* Ensure the button itself is a flex container */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  text-align: center;
+  color: white;
+  text-decoration: none; /* Remove underline from text */
+  font-weight: bold;
+  border-radius: 10px; /* Add more border-radius for a smoother rounded effect */
+  background-color: orange; /* Vibrant 'Go' Green */
+  font-size: 18px; /* Slightly increased font size for better readability */
+  width: 350px; /* Set the width */
+  height: 60px;
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflow content */
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+}
+
+.button:hover {
+  color: white; /* Keep text color white on hover for contrast */
+  background-color: darkorange; /* A slightly darker green for hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.button:active {
+  background-color: orange; /* Even darker green for active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
+  transform: translateY(2px); /* Add a slight downwards movement on click */
+}
+
+.button.sm {
+  font-size: 14px;
+  width: 250px;
+}
+
+.button.md {
+  font-size: 16px;
+  width: 300px;
+}
+
+.button.lg {
+  font-size: 20px;
+}

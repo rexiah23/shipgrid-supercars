@@ -5,6 +5,7 @@ import VehicleGrid from '@/components/VehicleGrid';
 import ShippingMap from '@/components/ShippingMap';
 import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
+import IconRow from '@/components/IconRow';
 import { useMediaQuery } from '@mui/material';
 
 import {
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
           <Hero isMobile={isMobile}/>
           {/* {!isMobile && <FeatureBlocks />} */}
+          <IconRow />
           <VehicleGrid vehicles={vehicles} isMobile={isMobile}/>
           {/* <ShippingMap /> */}
           <ReadyToCall />
