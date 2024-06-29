@@ -47,7 +47,7 @@ const HeaderMobile = () => {
 
         <div style={{ display: 'flex', color: 'white', justifyContent: 'space-between' }}>
           <Link href="/">
-            <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px' }} />
+            <img src="/White logo - no background.png" alt="Logo" style={{ height: '65px', marginLeft: '-15px' }} />
           </Link>
         </div>
 
