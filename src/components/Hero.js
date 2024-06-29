@@ -24,12 +24,13 @@ const Hero = ({ isMobile }) => {
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.h1}>
-                        The 
+                        Get Your Next Supercar For 30% Off
+                        {/* The 
                         <br/>
                         <span className={styles.dynamicWordContainer}>
                             <span className={styles.dynamicWord}>{currentWord}</span>
                         </span>
-                        <div>way to get your&nbsp;</div>next supercar
+                        <div>way to get your&nbsp;</div>next supercar */}
                     </h1>
                     <ul className={styles.ul}>
                         <li>Imported from South Korea</li>
@@ -38,8 +39,8 @@ const Hero = ({ isMobile }) => {
                     </ul>
                 </div>
                 <div style={{ marginTop: "-20px"}}>
-                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position="flex-start" style={{ margin: '20px' }}/>
-                    <ViewInventoryCTA size={isMobile ? 'sm' : 'lg'} position="flex-start" style={{ margin: '20px', marginTop: 'px' }}/>
+                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px' }}/>
+                    <ViewInventoryCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px', marginTop: '10px' }}/>
                 </div>
             </div>
         </div>

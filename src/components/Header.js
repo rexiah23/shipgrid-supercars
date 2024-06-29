@@ -9,6 +9,7 @@ import PhoneIcon from '@mui/icons-material/Phone'
 const HeaderMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const burgerRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,22 +20,26 @@ const HeaderMobile = () => {
   };
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) {
         closeMenu();
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <header style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'black', padding: '18px 0' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '90%'}}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '90%' }}>
         <div style={{ display: 'flex', color: 'white', justifyContent: 'space-between' }}>
           <PhoneIcon onClick={() => window.location.href = 'tel:+16476777891'} style={{ marginRight: '10px', cursor: 'pointer' }} />
           <EmailIcon onClick={() => window.location.href = 'mailto:admin@shipgrid.io'} style={{ cursor: 'pointer' }} />
@@ -46,13 +51,13 @@ const HeaderMobile = () => {
           </Link>
         </div>
 
-        <div onClick={toggleMenu}>
+        <div onClick={toggleMenu} ref={burgerRef}>
           <MenuIcon style={{ color: 'white' }} />
         </div>
       </div>
 
       {isOpen && (
-        <div ref={menuRef} style={{ width: '100%' }} onClick={toggleMenu}>
+        <div ref={menuRef} style={{ width: '100%' }}>
           <nav style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
             <Link className={styles.link} href="/" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>HOME</Link>
             <Link className={styles.link} href="/how-it-works" style={{ color: 'white', padding: '4px' }} onClick={closeMenu}>HOW IT WORKS</Link>
@@ -63,8 +68,8 @@ const HeaderMobile = () => {
         </div>
       )}
     </header>
-  )
-}
+  );
+};
 
 const HeaderDesktop = () => {
   return (
