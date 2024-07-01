@@ -46,14 +46,14 @@ const TabComponent = () => {
             onClick={() => setActiveTab('Cash')}
           >
             Cash
-            <span className={styles.tabDescription}>Cheapest</span>
+            {/* <span className={styles.tabDescription}>Cheapest</span> */}
           </div>
           <div
             className={`${styles.tab} ${activeTab === 'Escrow' ? styles.activeTab : ''}`}
             onClick={() => setActiveTab('Escrow')}
           >
             <img src={'/logos/escrowcom.svg'} alt="Escrow" className={styles.escrowLogo} />
-            <span className={styles.tabDescription}>Safest</span>
+            {/* <span className={styles.tabDescription}>Safest</span> */}
           </div>
           {/* <div
             className={`${styles.tab} ${activeTab === 'LetterOfCredit' ? styles.activeTab : ''}`}

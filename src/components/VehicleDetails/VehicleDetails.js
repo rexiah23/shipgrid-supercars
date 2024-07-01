@@ -357,7 +357,7 @@ const VehicleDetailsDesktop = ({ vehicle }) => {
                         ${formatNumberWithCommas(totalAmountEscrow)} <Typography component="span" sx={{ color: 'text.secondary' }}>CAD</Typography>
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', mt: 0 }}>
-                        View tabs for full pricing
+                        View tabs for pricing breakdown
                     </Typography>
                     <BookCallCTA text='START PURCHASE' style={{ marginTop: '16px', border: 'none', width: '100%', boxShadow: 'none'}} position="flex-start"/>
                     <DetailTabs vehicle={vehicle}/>
