@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Hero.module.css'; 
-import BookCallCTA from './BookCallCTA';
-import ViewInventoryCTA from './ViewInventoryCTA';
+import React, { useEffect, useState, Suspense } from 'react';
+import LazyLoad from 'react-lazyload';
+import styles from './Hero.module.css';
+
+const BookCallCTA = React.lazy(() => import('./BookCallCTA'));
+const ViewInventoryCTA = React.lazy(() => import('./ViewInventoryCTA'));
 
 const Hero = ({ isMobile }) => {
     const words = ["smartest", "safest", "cheapest"];
@@ -12,7 +14,7 @@ const Hero = ({ isMobile }) => {
         const intervalId = setInterval(() => {
             currentIndex = (currentIndex + 1) % words.length;
             setCurrentWord(words[currentIndex]);
-        }, 5000); 
+        }, 5000);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -20,7 +22,12 @@ const Hero = ({ isMobile }) => {
     return (
         <div className={styles.hero}>
             <div className={styles.overlay}></div>
-            <img className={styles.gif} src="./hero.gif" alt="Hero GIF" />
+            <LazyLoad height={200} offset={100}>
+                <video className={styles.gif} autoPlay loop muted playsInline>
+                    <source src="./hero.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </LazyLoad>
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.h1}>
@@ -38,9 +45,11 @@ const Hero = ({ isMobile }) => {
                         <li>Inspect With Your Mechanic Before Paying</li>
                     </ul>
                 </div>
-                <div style={{ marginTop: "-20px"}}>
-                    <BookCallCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px' }}/>
-                    <ViewInventoryCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px', marginTop: '10px' }}/>
+                <div style={{ marginTop: "-20px" }}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <BookCallCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px' }} />
+                        <ViewInventoryCTA size={isMobile ? 'sm' : 'lg'} position={isMobile ? "center" : "flex-start"} style={{ margin: '20px', marginTop: '10px' }} />
+                    </Suspense>
                 </div>
             </div>
         </div>

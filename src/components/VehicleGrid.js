@@ -8,7 +8,7 @@ const VehicleGrid = ({ vehicles, isMobile }) => {
 
     return (
         <div className={styles.gridContainer}>
-            <h2 className={styles.title}>Featured Vehicles</h2>
+            <h1 className={styles.title}>Featured Vehicles</h1>
             <div style={{ display: 'flex', marginBottom: '18px', flexDirection: isMobile ? 'column' : 'row'}}>
                 {limitedVehicles.map((vehicle) => (
                     <VehicleCard vehicle={vehicle}/>

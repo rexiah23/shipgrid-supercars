@@ -16,10 +16,10 @@ const steps = {
     { number: 1, title: 'Choose Your Vehicle', description: 'Let us know which vehicle you want.' },
     { number: 2, title: 'Inspection', description: 'We\'ll evaluate the vehicle with our in-house mechanic and send you the results.' },
     { number: 3, title: 'Wire Deposit', description: 'If you want to buy the vehicle, wire Shipgrid Supercar Imports a small deposit to secure it.' },
-    { number: 4, title: 'Sign Escrow Agreement', description: 'Sign the Escrow.com agreement and send the remaining funds. Escrow.com will hold your funds until you approve their release.' },
+    { number: 4, title: 'Sign Escrow Agreement', description: 'Sign the Escrow.com agreement and send the remaining funds. Escrow.com will hold your funds until you approve its release.' },
     { number: 5, title: 'We Ship and Clear Your Car', description: 'We deliver the vehicle to Vancouver, BC (YVR) and handle all customs clearance and paperwork.' },
     { number: 6, title: 'Decide If You Want to Keep the Car', description: 'Inspect the vehicle with your mechanic in Vancouver, BC. Then decide whether to keep or reject it.' },
-    { number: 7, title: 'Finalize Purchase', description: 'If you accept the vehicle,, instruct Escrow.com to release the funds to us, and you\'ll receive the vehicle\'s keys, title, and all ownership documents.' },
+    { number: 7, title: 'Finalize Purchase', description: 'If you accept the vehicle, instruct Escrow.com to release the funds to us, and you\'ll receive the vehicle\'s keys, title, and all ownership documents.' },
     { number: 8, title: 'Return Policy', description: 'If you reject the vehicle, Escrow.com returns your funds minus shipping and customs fees.' },
   ],
   // LetterOfCredit: [
@@ -39,8 +39,8 @@ const TabComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        <h3 className={styles.title}>Paying with:</h3>
         <div className={styles.tabs}>
+          <h3 className={styles.title}>Paying with:</h3>
           <div
             className={`${styles.tab} ${activeTab === 'Cash' ? styles.activeTab : ''}`}
             onClick={() => setActiveTab('Cash')}
@@ -53,6 +53,7 @@ const TabComponent = () => {
             onClick={() => setActiveTab('Escrow')}
           >
             <img src={'/logos/escrowcom.svg'} alt="Escrow" className={styles.escrowLogo} />
+            <a href="https://www.escrow.com/cars" target="_blank" rel="noopener noreferrer" className={styles.questionMark}>?</a>
             {/* <span className={styles.tabDescription}>Safest</span> */}
           </div>
           {/* <div

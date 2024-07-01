@@ -12,6 +12,7 @@ import {
   vehicles
 } from '../../data/vehicles'
 import ReadyToCall from '@/components/Ready';
+import TabComponent from '@/components/TabComponent';
 
 export default function Home() {
   const isMobile = useMediaQuery('(max-width: 600px)')
@@ -23,6 +24,10 @@ export default function Home() {
           <VehicleGrid vehicles={vehicles} isMobile={isMobile}/>
           {/* <ShippingMap /> */}
           <ReadyToCall />
+          <div style={{ paddingLeft: '20px', paddingRight: '20px', marginLeft: 'auto', marginRight: 'auto', marginTop: '24px', maxWidth: '1600px' }}>
+            <h1 style={{ display: 'flex', justifyContent: 'center'}}>How It Works</h1>
+                <TabComponent />
+          </div>
           <FAQ showTitle={true} displayLeft={true}/>
           {/* <ContactForm /> */}
       </main>

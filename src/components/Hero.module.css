@@ -21,6 +21,7 @@
   object-fit: cover;
   z-index: 0;
   animation: loop-animation infinite;
+  background-color: black; /* Ensure the background is black */
 }
 
 .overlay {
