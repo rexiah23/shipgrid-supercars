@@ -7,7 +7,17 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-          {/* Other tags like favicons, stylesheets etc. */}
+          
+          {/* Default favicon */}
+          <link rel="icon" href="/browser.png" />
+
+          {/* Favicon for iPhone */}
+          <link rel="apple-touch-icon" href="/iPhone.png" />
+
+          {/* Favicon for Android */}
+          <link rel="icon" type="image/png" href="/Android.png" />
+          
+          {/* Other tags like stylesheets etc. */}
         </Head>
         <body>
           <Main />

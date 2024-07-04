@@ -85,6 +85,10 @@
   margin-top: 20px;
 }
 
+.step {
+  text-align: center; 
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .tabs {

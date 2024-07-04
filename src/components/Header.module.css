@@ -1,111 +1,105 @@
-/* src/components/Header.module.css */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the header horizontally */
-    padding: 10px 20px;
-    background-color: black;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 40px; /* Adjust as needed to control spacing between logo and HOME link */
-    margin-left: 20px;
-  }
-  
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, background-color 0.3s;
-    font-size: 0.8em;
-    padding: 10px 15px; /* Add padding for better visual effect */
-    border-radius: 5px; /* Optional: Add border-radius for rounded effect */
-  }
-  
-  .link:hover {
-    color: black;
-    background-color: orange;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the header horizontally */
+  padding: 10px 20px;
+  background-color: black;
+}
 
-  .link.specialLink {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
-    padding: 15px 22.5px; /* Increased padding by 50% */
-    border-radius: 10px; /* More border-radius for a smoother rounded effect */
-    background-color: #28a745; /* A pleasant green color for "go" */
-    white-space: nowrap; /* Prevents text wrapping */
-    overflow: hidden; /* Hides overflow content */
-    text-overflow: ellipsis; /* Adds ellipsis for overflow text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 40px; /* Adjust as needed to control spacing between logo and HOME link */
+  margin-left: 20px;
+}
 
-  }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-  .link.specialLink:hover {
-    background-color: #218838; /* A slightly darker green for hover effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
-  }
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  font-size: 0.8em;
+  padding: 10px 15px; /* Add padding for better visual effect */
+  border-radius: 5px; /* Optional: Add border-radius for rounded effect */
+}
 
-  .link.specialLink:active {
-    background-color: #1e7e34; /* Even darker green for active state */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
-    transform: translateY(2px); /* Add a slight downwards movement on click */
-  }
+.link:hover {
+  color: black;
+  background-color: orange;
+}
 
-  
-  /* src/components/Header.module.css */
+.link.specialLink {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  padding: 15px 22.5px; /* Increased padding by 50% */
+  border-radius: 10px; /* More border-radius for a smoother rounded effect */
+  background-color: #28a745; /* A pleasant green color for "go" */
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflow content */
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.link.specialLink:hover {
+  background-color: #218838; /* A slightly darker green for hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.link.specialLink:active {
+  background-color: #1e7e34; /* Even darker green for active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on active state */
+  transform: translateY(2px); /* Add a slight downwards movement on click */
+}
+
 .burger {
-    display: none; /* Initially hide the burger menu on desktop */
-    cursor: pointer;
-  }
-  
-  .burgerLine {
-    width: 22px; /* Width of the burger lines */
-    height: 3px; /* Height of the burger lines */
-    background-color: white;
-    margin: 5px 0; /* Space between the lines */
-    transition: all 0.3s ease;
-  }
-  
-  .mobileContent {
-    color: white;
-    display: flex;
-    align-items: flex-start;
-    /* margin-right: 12px; */
-  }
-/* src/components/Header.module.css */
+  display: none; /* Initially hide the burger menu on desktop */
+  cursor: pointer;
+}
+
+.burgerLine {
+  width: 22px; /* Width of the burger lines */
+  height: 3px; /* Height of the burger lines */
+  background-color: white;
+  margin: 5px 0; /* Space between the lines */
+  transition: all 0.3s ease;
+}
+
+.mobileContent {
+  color: white;
+  display: flex;
+  align-items: flex-start;
+}
+
 @media (max-width: 768px) {
-    .header {
-      position: relative; /* Ensures that the nav can be positioned absolutely relative to header */
-    }
-  
-    .nav {
-      flex-direction: column;
-      width: 100%; /* Full width */
-      display: none; /* Hide by default */
-      position: absolute;
-      top: 100%; /* Start right below the header which includes the burger icon */
-      left: 0;
-      background-color: black; /* Match the header background */
-      z-index: 1000;
-    }
-  
-    .navOpen {
-      display: flex; /* Display the nav when open */
-    }
-  
-    .burger {
-      display: block; /* Show burger icon on mobile */
-      z-index: 1001; /* Ensure the burger is above the nav menu */
-    }
+  .header {
+    position: relative; /* Ensures that the nav can be positioned absolutely relative to header */
   }
-  
+
+  .nav {
+    flex-direction: column;
+    width: 100%; /* Full width */
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%; /* Start right below the header which includes the burger icon */
+    left: 0;
+    background-color: black; /* Match the header background */
+    z-index: 1000;
+  }
+
+  .navOpen {
+    display: flex; /* Display the nav when open */
+  }
+
+  .burger {
+    display: block; /* Show burger icon on mobile */
+    z-index: 1001; /* Ensure the burger is above the nav menu */
+  }
+}

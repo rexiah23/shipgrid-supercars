@@ -15,7 +15,7 @@ const vehicles = [
         model: 'Gallardo',
         trim: 'Superleggera',
         kms: 38442,
-        price: 125000,
+        price: 124500,
         gallery: ['https://lh3.googleusercontent.com/d/1herR7na7wIdqtXgDvnW5bvYXYDV5D7mf',
   'https://lh3.googleusercontent.com/d/1UWyhBCcJZ86wCcIyYq7TJFoigrb_IEkL',
   'https://lh3.googleusercontent.com/d/13oM43-DFR7_ty8PN9L0mB9-2GcyheFxL',

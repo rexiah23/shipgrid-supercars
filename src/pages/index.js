@@ -13,6 +13,7 @@ import {
 } from '../../data/vehicles'
 import ReadyToCall from '@/components/Ready';
 import TabComponent from '@/components/TabComponent';
+import Features from '@/components/Features';
 
 export default function Home() {
   const isMobile = useMediaQuery('(max-width: 600px)')
@@ -20,7 +21,13 @@ export default function Home() {
       <main>
           <Hero isMobile={isMobile}/>
           {/* {!isMobile && <FeatureBlocks />} */}
-          <IconRow />
+          {/* <IconRow /> */}
+          {!isMobile && 
+        <div style={{ paddingLeft: '20px', paddingRight: '20px', marginLeft: 'auto', marginRight: 'auto', maxWidth: '1600px' }}>
+            <h1>Highlights</h1>
+          </div>
+          }
+          <Features/>
           <VehicleGrid vehicles={vehicles} isMobile={isMobile}/>
           {/* <ShippingMap /> */}
           <ReadyToCall />

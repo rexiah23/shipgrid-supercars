@@ -93,9 +93,9 @@ const FAQ = ({ showTitle = false }) => {
     return (
         <>
             {showTitle && (
-                <h2 className={styles.title}>
+                <h1 className={styles.title}>
                     Frequently Asked Questions
-                </h2>
+                </h1>
             )}
             <div className={styles.faq}>
                 {questionsAnswers.map((item, index) => (
